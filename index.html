@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/test-my-site/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/ubantu%E8%A3%85%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cavalry">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/03/test-my-site/" itemprop="url">test_my_site</a></h1>
+                <a class="post-title-link" href="/2019/12/04/ubantu%E8%A3%85%E6%9C%BA/" itemprop="url">ubantu装机</a></h1>
         
 
         <div class="post-meta">
@@ -259,8 +259,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-03T18:25:08+08:00">
-                2019-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-04T10:53:12+08:00">
+                2019-12-04
               </time>
             
 
@@ -299,7 +299,62 @@
       
         
           
-            
+            <h2 id="Ubantu-Linux-系统安装时可能会遇到的几个问题"><a href="#Ubantu-Linux-系统安装时可能会遇到的几个问题" class="headerlink" title="Ubantu(Linux)系统安装时可能会遇到的几个问题"></a>Ubantu(Linux)系统安装时可能会遇到的几个问题</h2><p>​    这几天在Windows系统下尝试安装了Linux系统(指Ubantu)，安装的时候顺便了解了下Linux的分区要求，果然水很深啊233333。</p>
+<p>​    不同的人有不同的配置需求，但对于小白而言，首先需要<strong>搞清楚自己电脑的配置</strong>，网上的教程大多是针对MBR传统BIOS，而市面上的电脑大多是UEFI设置 ，主要的配置如下：</p>
+<ul>
+<li>MBR传统BIOS+单硬盘</li>
+<li>MBR传统BIOS+双硬盘（SSD固态硬盘+机械硬盘）</li>
+<li>UEFI新式BIOS+单硬盘</li>
+<li>UEFI新式BIOS+双硬盘（SSD固态硬盘+机械硬盘）</li>
+<li>以上任意一种情况+电脑有独立显卡（少数电脑此种情况下会遇到Linux系统下没有显卡驱动而导致Linux安装的时候卡死。</li>
+</ul>
+<blockquote>
+<p>怎样查看自己电脑是MBR还是UEFI：win+R输入msinfo32回车确认即可查看自己BIOS模式。</p>
+</blockquote>
+<p>本人电脑属于第三种类型(某DELL Inspiration)，这里主要记录下这种情况下可能遇到的坑：</p>
+<p>BIOS下需要修改项：</p>
+<ol>
+<li><p>SATA Operation里选择ACHI（若此处忘记更改，则ubantu安装界面会没有让你自己分区的界面，或者无法进行分区（显示internal error））。</p>
+</li>
+<li><p>Boot Sequence（本人是通过Ubantu镜像来进行安装，需要在BIOS中将启动顺序中USB置顶）。</p>
+</li>
+<li><p>Security Boot去掉对勾。</p>
+</li>
+<li><p>ptt on去掉对勾（笔者此处不去掉对勾似乎也可）。</p>
+</li>
+</ol>
+<p>记得要插入U盘进行重启。</p>
+<p>进入安装后，记得不要联网，不要更新，否则安装将会进行的很慢，地区随便设置一下就可以了。</p>
+<p>分区设置：</p>
+<ol>
+<li>EFI分区引导  SSD  主分区  500M（如果是UEFI+GPT分区表模式，那么给ubuntu分区的时候不用设置/boot分区，设置efi系统分区；如果是legacy+MBR分区表那么就要设置/boot分区，网上应有详细教程）。</li>
+<li>swap 交换空间  HDD  逻辑空间 物理内存一到两倍即可（这个分区作为Linux的虚拟内存）。</li>
+<li>/ HDD  逻辑分区  ex4  20G（这个分区用于储存系统文件）。</li>
+<li>/home  HDD  逻辑分区  ex4  剩余空间（用户文件夹储存的地方）。</li>
+</ol>
+<p>配置这些分区已经足够，此外，还有些别的分区（根据自己需求选配）：</p>
+<ul>
+<li>/usr/local：是 <a href="https://www.baidu.com/s?wd=Linux系统&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">Linux系统</a>存放软件的地方。</li>
+<li>/var：是<a href="https://www.baidu.com/s?wd=系统日志&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">系统日志</a>记录分区。</li>
+<li>/tmp分区，用来存放临时文件。</li>
+</ul>
+<hr>
+<p>​    建议把/var和/tmp独立出来的教程通常是面向服务器的。因为高负载的服务器通常会产生很多日志文件、临时文件，这些文件经常改变，因此把/var，/tmp独立出来有利于提高服务器性能。但如果你用Ubuntu是做桌面的，或从来不关心过<a href="https://www.baidu.com/s?wd=系统日志&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">系统日志</a>这东西，就没有必要独立的为/var和/tmp挂载分区。</p>
+<p>​    还有些老旧的教程中建议把Linux安装在主分区中，或在/boot下挂载一个主分区。事实上，这也是不需要的。Linux的所有分区都可以位于逻辑分区中。所以请放心的把Linux安装在逻辑分区中吧。</p>
+<p>​    </p>
+<h3 id="接下来说说怎样删除EFI分区"><a href="#接下来说说怎样删除EFI分区" class="headerlink" title="接下来说说怎样删除EFI分区"></a>接下来说说怎样删除EFI分区</h3><p>​    <strong>使用相关软件（easyUEFI之类）成功删除相关项目后</strong>，再删除磁盘时，可以发现有一个EFI分区无法删除（Ubantu系统的引导），网上很多方法都是select disk 编号 –&gt;clean，若磁盘上还有别的文件，clean后就GG了，想要再恢复磁盘数据需要下载使用相关软件恢复（DiskGenius之类）。</p>
+<p>​    下面介绍一个绝对安全的方法：</p>
+<ol>
+<li>打开cmd。</li>
+<li>输入<em>dispart</em>（或者直接win+R输入<em>dispart</em>也可）</li>
+<li>在新窗口中输入<em>list disk</em></li>
+<li>根据磁盘编号选择相应磁盘（有可能只有一个磁盘）</li>
+<li>输入<em>lisk partition</em>查看分区</li>
+<li>选中<strong>Ubantu EFI</strong>所在分区（千万不要把Windows的引导删除了！！！）</li>
+<li>最后执行命令 SET ID=ebd0a0a2-b9e5-4433-87c0-68b6b72699c7</li>
+</ol>
+<p>成功删除EFI分区！</p>
+
           
         
       
