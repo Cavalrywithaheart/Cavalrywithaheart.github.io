@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="​     学习Linux系统下的bash脚本">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-26T01:28:02.978Z">
+<meta property="og:updated_time" content="2020-03-26T09:03:05.967Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -279,7 +279,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-26T09:18:53+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-26T09:28:53+08:00">
                 2020-03-26
               </time>
             
@@ -345,6 +345,29 @@
 <p>bash是许多Linux发行版的默认shell，也是许多传统Unix系统的shell，较zsh/fish等更为常见，鉴于Shell Script语言大致类同，我选择了最为普遍的bash进行学习。</p>
 <p><a href="https://github.com/denysdovhan/bash-handbook/blob/master/translations/zh-CN/README.md" target="_blank" rel="noopener">快速入门bash</a></p>
 <p><a href="https://github.com/denysdovhan/learnyoubash" target="_blank" rel="noopener">基于上面文档的交互平台</a></p>
+<blockquote>
+<p>记录一下学习时出错次数较多的地方：</p>
+</blockquote>
+<ul>
+<li><p><strong>注意shell中的空格</strong></p>
+<ol>
+<li><p>定义变量时, =号的两边不可以留空格。</p>
+</li>
+<li><p>条件语句[[和[符号的两边都要留空格。</p>
+</li>
+<li><p>条件语句里若是字符串进行比较，比较符号两边要留空格。</p>
+</li>
+<li><p>取变量值$前后不能有空格。</p>
+</li>
+</ol>
+</li>
+<li><p>若if与then写在一行内，则需要加上;符号（事实上，两条语句写在一行都是如此），若不在一行则可以不加。注意一些一定要一起出现的语句！（如if&amp;then，do&amp;done等）</p>
+</li>
+<li><p>while/until语句使用的是[[]],而for语句则是(())。</p>
+</li>
+<li><p>表达语句中引用变量可以不用$。</p>
+</li>
+</ul>
 
       
     </div>
@@ -369,8 +392,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/24/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="next" title="一">
-                <i class="fa fa-chevron-left"></i> 一
+              <a href="/2020/03/24/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="next" title="计算机系统漫游">
+                <i class="fa fa-chevron-left"></i> 计算机系统漫游
               </a>
             
           </div>

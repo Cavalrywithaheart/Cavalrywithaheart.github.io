@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="record something interesting">
+<meta name="description" content="计算机系统漫游">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一">
+<meta property="og:title" content="计算机系统漫游">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;24&#x2F;%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="Cavalry">
-<meta property="og:description" content="record something interesting">
+<meta property="og:description" content="计算机系统漫游">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-24T03:07:13.427Z">
+<meta property="og:updated_time" content="2020-03-29T12:06:06.083Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>一 | Cavalry</title>
+  <title>计算机系统漫游 | Cavalry</title>
   
 
 
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一</h1>
+          <h1 class="post-title" itemprop="name headline">计算机系统漫游</h1>
         
 
         <div class="post-meta">
@@ -339,7 +339,47 @@
       
 
       
-        
+        <h1 id="计算机系统漫游"><a href="#计算机系统漫游" class="headerlink" title="计算机系统漫游"></a>计算机系统漫游</h1><a id="more"></a>
+
+<h4 id="信息-位-上下文"><a href="#信息-位-上下文" class="headerlink" title="信息=位+上下文"></a>信息=位+上下文</h4><p>​        以一个简单的C语言程序为例，源程序就是一个由0和1组成的位（比特）序列，8个位一组构成字节，每个字节代表着程序中的某些文本字符，像下面这种只由ASCII码构成的的文件是<strong><em>文本文件</em></strong>，其他的文件都称作<strong><em>二进制文件</em></strong>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	<span class="built_in">printf</span>(<span class="string">"hello,world!\n"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>​        这样的表示方法说明了计算机系统中所有的数据都是直接或者间接由一串二进制数字，而区分这些字串的方法是依据上下文，例如，在不同的上下文中，相同的字串可能表示一个整数，浮点数或者其他的东西。</p>
+<h4 id="程序被翻译成别的格式"><a href="#程序被翻译成别的格式" class="headerlink" title="程序被翻译成别的格式"></a>程序被翻译成别的格式</h4><p>​        还是以一个.c文件为例，它从.c文件（文本文件）被编译成可执行的二进制文件通常需要经过以下几个阶段：</p>
+<ul>
+<li>预处理阶段。<strong><em>预处理器(cpp)</em></strong>根据文件头部<code>#include &lt;stdio.h&gt;</code>读取系统文件的内容并把它插入到.c文件中去，得到另一个文本文件（通常以.i文件作为拓展名）</li>
+<li>编译阶段。<strong><em>编译器(ccl)</em></strong>会将以.i结尾的文本文件编译成一个以.s结尾的文本文件，它包含一个汇编程序（汇编语言为每一种高级语言提供了统一的输出）</li>
+<li>汇编阶段。<strong><em>汇编器(as)</em></strong>将.s文件翻译成机器语言指令，将他们打包成一种可重定位目标程序(relocatable object program)的格式并将结果保存到一个.o文件中去</li>
+<li>链接阶段。上面的代码包含了<code>printf</code>函数，而<code>printf</code>包含于一个预编译好的.o文件中，<strong><em>连接器(ld)</em></strong>负责将这些文件链接合并，然后得到我们所需的二进制可执行文件。</li>
+</ul>
+<p>了解上面的流程有助于我们理解程序的开销与产生，以便于我们改进程序，提高程序的性能，以及理解一些程序本身运行本身产生的错误。</p>
+<h4 id="处理器读并解释储存在内存中的指令"><a href="#处理器读并解释储存在内存中的指令" class="headerlink" title="处理器读并解释储存在内存中的指令"></a>处理器读并解释储存在内存中的指令</h4><h5 id="系统的硬件组成"><a href="#系统的硬件组成" class="headerlink" title="系统的硬件组成"></a>系统的硬件组成</h5><ul>
+<li>总线：总线是一种管道，用来携带字节并输向系统的各个部分。总线一般被设计成传递一定数量的字节，这样的字节块被称作<strong><em>字(word)</em></strong>，字中的字节数被称作<strong><em>字长</em></strong>。</li>
+<li>I/O设备：I/O设备是系统与外部设备连接的通道，I/O设备通过一个<strong><em>控制器</em></strong>或者<strong><em>适配器</em></strong>与I/O总线相连。控制器与适配器的区别主要在于控制器是I/O设备本身或者系统的主板而适配器则是一块插在主板上的卡。它们的功能均是在I/O设备中传递信息。</li>
+<li>主存：主存是一个临时存储设备，在程序运行时用来存放程序（由机器指令构成）跟程序储存的数据。存储器在逻辑上是一个线性字节数组，每个字节都有其唯一的地址，而地址是从0开始的。</li>
+<li>处理器：<strong><em>又称中央处理单元(CPU),</em></strong>用于解释储存在主存中指令的引擎，处理器核心是一个大小为一个字的存储设备（寄存器），称作<strong><em>程序计数器(PC)</em></strong>。任何时候都指向主存中的某条机器语言指令（即含有这条指令的地址)。处理器看上去是按照一个简单的指令集架构决定的模型决定的，在这个模型里，指令按照严格的顺序执行，而指令执行的步骤又包括下面几个：读取指令，解释指令，执行指令指示的操作（将两个寄存器中的内容复制到<strong><em>算术/逻辑单元(ALU)</em></strong>,ALU计算后将结果存放到一个寄存器中并覆盖其原有的值），更新程序计数器指向下一条指令（注意下一条指令不一定与刚刚执行的指令在内存中相邻）。上述的操作围绕主存，寄存器文件（由一些单个文件的寄存器组成）以及ALU进行。</li>
+</ul>
+<h5 id="程序的运行"><a href="#程序的运行" class="headerlink" title="程序的运行"></a>程序的运行</h5><ul>
+<li>初始时，每当我们敲出一个命令，shell会将<u>输入的字符</u>逐一读入寄存器，再放入内存总线中。</li>
+<li>当我们敲下回车，shell就会执行一系列指令来加载可执行文件，这些指令将<u>可执行文件</u>中的代码跟数据从磁盘负责到主存。（利用<strong><em>直接存储器存取(DMA)</em></strong>可以让数据不经过处理器经由磁盘直接到达主存）</li>
+<li>加载到主存后，处理器会开始执行机器指令，将主存中的数据复制到寄存器文件，再从寄存器中复制到显示设备，最终显示到屏幕上。</li>
+</ul>
+<h4 id="高速缓存"><a href="#高速缓存" class="headerlink" title="高速缓存"></a>高速缓存</h4><p>​        考虑到读取的开销以及寄存器的昂贵价格，设计者采用了较主存更小更快的<strong><em>高速缓存处理器(cache)</em></strong>，这样的处理器通常分为两级L1,L2，更强的的系统甚至有三级缓存L1,L2,L3。我们在缓存处理器中存放可能经常访问的数据，来大大提升程序的运行速度。</p>
+<h4 id="操作系统管理硬件"><a href="#操作系统管理硬件" class="headerlink" title="操作系统管理硬件"></a>操作系统管理硬件</h4><p>​        当shell加载运行我们的可执行文件时，shell或者可执行程序本身都没有直接访问键盘，显示器等I/O设备或者磁盘主存，而是依靠操作系统提供的服务来进行的，我们可以把操作系统看作是插入到硬件和软件中的一层软件，所有应用程序对硬件的操作尝试都需要通过操作系统。</p>
+<p>​        操作系统主要通过进程，虚拟内存以及文件三个抽象概念来实现其功能，其中：</p>
+<ul>
+<li><p>文件是对I/O设备的抽象表示</p>
+</li>
+<li><p>虚拟内存是对主存跟磁盘I/O设备的抽象表示</p>
+</li>
+<li><p>进程则是对处理器，主存和I/O设备的抽象表示</p>
+</li>
+</ul>
+<h5 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h5><p>​        像编译本文开头那个源程序得到的可执行程序在运行时，操作系统会提供一种假象，就像系统上只有这个程序在运行。它似乎在独占处理器，主存以及I/O设备。</p>
+<p>​        在一个系统上可以运行多个进程，而每个进程似乎都在独占硬件。<strong><em>并发运行</em></strong>指的是一个进程的指令跟另一个是交错运行的。单核处理器在一个时刻只能处理一个程序，而多核则可以处理多个，但是无论在什么时候，一个CPU都像是在同时执行多个程序，这是CPU在进程中的切换导致的。</p>
+<p>​        操作系统保持跟踪进程运行所需的所有状态信息，这种状态，就是<strong><em>上下文</em></strong>，上下文包括了很多信息，比如PC和寄存器文件当前的值，以及主存的内容。当操作系统决定要把控制权从当前进程转移到新进程时，就会进行上下文切换，即保存当前进程的上下文，恢复新进程的上下文然后将控制权交到新进程，然后新进程再从它上次停止的地方开始。</p>
+<p>​        从一个进程到另一个进程的转换是由<strong><em>操作系统内核(kernel)</em></strong>管理的，操作系统内核是操作系统代码常驻主存的部分，当应用程序需要操作系统执行某些操作时，他就执行特殊的<strong><em>系统调用指令(system call)</em></strong> ，将控制权传递给内核，然后内核执行被请求的操作并返回给应用程序（注意内核不是进程，相反，它是系统管理所有进程所用的代码跟数据结构的集合）。</p>
+
       
     </div>
     
@@ -427,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,6 +528,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机系统漫游"><span class="nav-number">1.</span> <span class="nav-text">计算机系统漫游</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-位-上下文"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">信息=位+上下文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序被翻译成别的格式"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">程序被翻译成别的格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理器读并解释储存在内存中的指令"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">处理器读并解释储存在内存中的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#系统的硬件组成"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">系统的硬件组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#程序的运行"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text">程序的运行</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高速缓存"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">高速缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统管理硬件"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">操作系统管理硬件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进程"><span class="nav-number">1.0.0.5.1.</span> <span class="nav-text">进程</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
