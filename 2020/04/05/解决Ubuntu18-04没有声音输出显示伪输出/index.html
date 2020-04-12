@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output&#x2F;dummy output)。Google以后发现大概是设备没有找到声卡的问题（众所周知dell是对Ubuntu支持最友好的公司之一），可能是因为强制关机导致的。 ​    首先，我按照网上的提示，修改了两个文件，&#x2F;etc&#x2F;modprobe.d&#x2F;alsa-base.conf*和&#x2F;">
+<meta name="description" content="​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output&#x2F;dummy output)。Google以后发现大概是设备没有找到声卡的问题（众所周知dell是对Ubuntu支持最友好的公司之一），可能是因为强制关机导致的。 ​    首先，我按照网上的提示，修改了两个文件，&#x2F;etc&#x2F;modprobe.d&#x2F;alsa-base.conf和&#x2F;et">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Ubuntu18.04没有声音输出显示伪输出">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;05&#x2F;%E8%A7%A3%E5%86%B3Ubuntu18-04%E6%B2%A1%E6%9C%89%E5%A3%B0%E9%9F%B3%E8%BE%93%E5%87%BA%E6%98%BE%E7%A4%BA%E4%BC%AA%E8%BE%93%E5%87%BA&#x2F;index.html">
 <meta property="og:site_name" content="Cavalry">
-<meta property="og:description" content="​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output&#x2F;dummy output)。Google以后发现大概是设备没有找到声卡的问题（众所周知dell是对Ubuntu支持最友好的公司之一），可能是因为强制关机导致的。 ​    首先，我按照网上的提示，修改了两个文件，&#x2F;etc&#x2F;modprobe.d&#x2F;alsa-base.conf*和&#x2F;">
+<meta property="og:description" content="​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output&#x2F;dummy output)。Google以后发现大概是设备没有找到声卡的问题（众所周知dell是对Ubuntu支持最友好的公司之一），可能是因为强制关机导致的。 ​    首先，我按照网上的提示，修改了两个文件，&#x2F;etc&#x2F;modprobe.d&#x2F;alsa-base.conf和&#x2F;et">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-06T08:06:02.742Z">
+<meta property="og:updated_time" content="2020-04-06T12:34:24.701Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>解决Ubuntu18.04没有声音输出显示伪输出 | Cavalry</title>
+  <title>解决Ubuntu18.04没有声音输出显示伪输出 | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -142,7 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -340,9 +340,8 @@
 
       
         <a id="more"></a>
-
 <p>​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output/dummy output)。Google以后发现大概是设备没有找到声卡的问题<del>（众所周知dell是对Ubuntu支持最友好的公司之一）</del>，可能是因为强制关机导致的。</p>
-<p>​    首先，我按照网上的提示，修改了两个文件，<em>/etc/modprobe.d/alsa-base.conf*和</em>/etc/modprobe.d/blacklist.conf<em>，具体的1指令可以参考如下：</em>echo “options snd-hda-intel dmic_detect=0” | sudo tee -a /etc/modprobe.d/alsa-base.conf<em>和</em>echo “blacklist snd_soc_skl” | sudo tee -a /etc/modprobe.d/blacklist.conf*，然而这并没有解决我的问题。</p>
+<p>​    首先，我按照网上的提示，修改了两个文件，<em>/etc/modprobe.d/alsa-base.conf</em>和<em>/etc/modprobe.d/blacklist.conf</em>，具体的指令可以参考如下：<em>echo “options snd-hda-intel dmic_detect=0” | sudo tee -a /etc/modprobe.d/alsa-base.conf</em>和<em>echo “blacklist snd_soc_skl” | sudo tee -a /etc/modprobe.d/blacklist.conf</em>，然而这并没有解决我的问题。</p>
 <p>​    然后我按照网友的提示下载了pulseaudio，想按他们说的修改一些配置（像把输出设备从扬声器改成虚拟耳机之类），然而也没有生效。</p>
 <p>​    最后试了试把<em>/etc/modprobe.d/alsa-base.conf</em>文件里model从generic改成了auto，最后在下载的pulseaudio里的设置选项改成第一个选项（本来应该试这个选项，在上文中的修改改乱了），声卡就恢复了。</p>
 <p>后记：Linux系统出现的bug千奇百怪，没有声音可能有很多原因，要善用搜索引擎。提示Dummy Output和dummy output似乎有区别，具体的方法可以参考<a href="https://www.linuxuprising.com/2018/06/fix-no-sound-dummy-output-issue-in.html" target="_blank" rel="noopener">这里</a>。</p>
@@ -380,7 +379,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/06/CSAPP-20200406-0201/" rel="prev" title="信息的表示和处理（一）">
+              <a href="/2020/04/06/CSAPP_20200406_02_01/" rel="prev" title="信息的表示和处理（一）">
                 信息的表示和处理（一） <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -634,7 +633,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
@@ -687,6 +703,8 @@
   
 
   
+  
+
 
   
 

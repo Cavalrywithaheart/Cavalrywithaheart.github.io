@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -123,7 +123,7 @@
 
 
 
-  <title>DELL inspiration7391 Windows10和ubuntu18.04双系统使用grub引导 | Cavalry</title>
+  <title>DELL inspiration7391 Windows10和ubuntu18.04双系统使用grub引导 | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -142,7 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -359,10 +359,8 @@
 </li>
 <li><p>Boot Sequence（本人是通过Ubuntu镜像来进行安装，需要在BIOS中将启动顺序中USB置顶）。</p>
 </li>
-<li><p>Security Boot去掉对勾。</p>
-</li>
-<li><p>ptt on去掉对勾（笔者此处不去掉对勾似乎也可）。</p>
-</li>
+<li>Security Boot去掉对勾。</li>
+<li>ptt on去掉对勾（笔者此处不去掉对勾似乎也可）。</li>
 </ol>
 <p>记得要插入U盘进行重启。</p>
 <p>进入安装后，记得不要联网，不要更新，否则安装将会进行的很慢，地区随便设置一下就可以了。</p>
@@ -383,7 +381,7 @@
 <p>​    建议把/var和/tmp独立出来的教程通常是面向服务器的。因为高负载的服务器通常会产生很多日志文件、临时文件，这些文件经常改变，因此把/var，/tmp独立出来有利于提高服务器性能。但如果你用Ubuntu是做桌面的，或从来不关心过系统日志这东西，就没有必要独立的为/var和/tmp挂载分区。</p>
 <p>​    还有些老旧的教程中建议把Linux安装在主分区中，或在/boot下挂载一个主分区。事实上，这也是不需要的。Linux的所有分区都可以位于逻辑分区中。所以请放心的把Linux安装在逻辑分区中吧。</p>
 <p>​    </p>
-<h2 id="接下来说说怎样删除EFI分区"><a href="#接下来说说怎样删除EFI分区" class="headerlink" title="接下来说说怎样删除EFI分区"></a>接下来说说怎样删除EFI分区</h2><p>​    <strong>使用相关软件（easyUEFI之类）成功删除相关项目后</strong>，再删除磁盘时，可以发现有一个EFI分区无法删除（Ubuntu系统的引导），网上很多方法都是select disk 编号 –&gt;clean，若磁盘上还有别的文件，clean后就GG了，想要再恢复磁盘数据需要下载使用相关软件恢复（DiskGenius之类）。</p>
+<h2 id="接下来说说怎样删除EFI分区"><a href="#接下来说说怎样删除EFI分区" class="headerlink" title="接下来说说怎样删除EFI分区"></a>接下来说说怎样删除EFI分区</h2><p>​    <strong>使用相关软件（easyUEFI之类）成功删除相关项目后</strong>，再删除磁盘时，可以发现有一个EFI分区无法删除（Ubuntu系统的引导），网上很多方法都是select disk 编号 —&gt;clean，若磁盘上还有别的文件，clean后就GG了，想要再恢复磁盘数据需要下载使用相关软件恢复（DiskGenius之类）。</p>
 <p>​    下面介绍一个绝对安全的方法：</p>
 <ol>
 <li>打开cmd。</li>
@@ -709,7 +707,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
@@ -762,6 +777,8 @@
   
 
   
+  
+
 
   
 
