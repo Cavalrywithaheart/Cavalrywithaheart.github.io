@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="信息的表示和处理（一）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-12T12:07:36.321Z">
+<meta property="og:updated_time" content="2020-05-04T01:54:18.921Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -379,8 +379,11 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> start,<span class="keyword">size_t</span> len )</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">size_t</span> i;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.2x"</span>,start[i]);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;<span class="comment">//打印字符串</span></span></pre></td></tr></table></figure>
 <p>得到的结果都会是相同的，即31 32 33 34 35 00，其中1对应的ASCII码为31而终止字节的ASCII码表示为0x00，我们可以说文本数据比二进制数据具有更好的平台独立性。</p>
 <h3 id="表示代码"><a href="#表示代码" class="headerlink" title="表示代码"></a>表示代码</h3><p>​    计算机的一个基本概念就是，从机器的角度来看，程序仅仅是字节序列，机器没有关于原始源程序的任何信息，除了可以用来帮助调试的辅助表以外。</p>
+<h3 id="布尔代数"><a href="#布尔代数" class="headerlink" title="布尔代数"></a>布尔代数</h3><p>​    ~、&amp;、|、^分别表示NOT、AND、OR、EXCLUSIVE-OR，可以将这四种运算拓展到位向量的运算。假设ab都是长为m的位串，将a&amp;b也定义为一个位向量，则$(a\&amp;b)_i=a_i\&amp;b_i$。</p>
+<p>​    实际应用中，我们可以用位向量来表示集合编码，在后面的章节我们会遇到。</p>
+<h3 id="C语言中的位级运算"><a href="#C语言中的位级运算" class="headerlink" title="C语言中的位级运算"></a>C语言中的位级运算</h3><p>​    位级运算的一个常见用法就是掩码运算，不过这样做的可移植性较低。</p>
 <blockquote>
-<p>关于hexo不支持LaTeX的问题，具体可以参考<a href="https://www.jianshu.com/p/d95a4795f3a8" target="_blank" rel="noopener">这篇文章</a>，需要注意的是LaTeX跟markdown的语法有冲突，markdown中_和<em>都可以用来表示斜体和加粗，这里将_用于LaTeX而把</em>用于markdown。</p>
+<p>关于hexo不支持LaTeX的问题，具体可以参考<a href="https://www.jianshu.com/p/d95a4795f3a8" target="_blank" rel="noopener">这篇文章</a>，需要注意的是LaTeX跟markdown的语法有冲突，markdown中_和<em> 都可以用来表示斜体和加粗，这里将 _用于LaTeX而把</em>用于markdown。</p>
 </blockquote>
 
       
@@ -415,6 +418,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/04/CSAPP-20200504_02_02/" rel="prev" title="CSAPP_20200504_02_02">
+                CSAPP_20200504_02_02 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +498,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -537,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息的表示和处理（一）"><span class="nav-number">1.</span> <span class="nav-text">信息的表示和处理（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何表示符号"><span class="nav-number">1.1.</span> <span class="nav-text">如何表示符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息存储"><span class="nav-number">1.2.</span> <span class="nav-text">信息存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字数据大小"><span class="nav-number">1.2.1.</span> <span class="nav-text">字数据大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻址和字节顺序"><span class="nav-number">1.2.2.</span> <span class="nav-text">寻址和字节顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示代码"><span class="nav-number">1.2.3.</span> <span class="nav-text">表示代码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息的表示和处理（一）"><span class="nav-number">1.</span> <span class="nav-text">信息的表示和处理（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何表示符号"><span class="nav-number">1.1.</span> <span class="nav-text">如何表示符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息存储"><span class="nav-number">1.2.</span> <span class="nav-text">信息存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字数据大小"><span class="nav-number">1.2.1.</span> <span class="nav-text">字数据大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻址和字节顺序"><span class="nav-number">1.2.2.</span> <span class="nav-text">寻址和字节顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示代码"><span class="nav-number">1.2.3.</span> <span class="nav-text">表示代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔代数"><span class="nav-number">1.2.4.</span> <span class="nav-text">布尔代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言中的位级运算"><span class="nav-number">1.2.5.</span> <span class="nav-text">C语言中的位级运算</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
