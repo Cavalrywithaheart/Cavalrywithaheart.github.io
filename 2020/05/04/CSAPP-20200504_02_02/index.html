@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="信息的表示和处理（二）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-04T08:32:38.070Z">
+<meta property="og:updated_time" content="2020-05-04T08:35:32.225Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -350,11 +350,11 @@
 <h3 id="无符号数的表示"><a href="#无符号数的表示" class="headerlink" title="无符号数的表示"></a>无符号数的表示</h3><p>​    我们用一个函数$B2U_w$(Binary to Unsigned的缩写，长度为w)来表示无符号数。无符号数编码的定义</p>
 <p>对向量<strong>x</strong>=[$x_{w-1},x_{w-2},\cdots,x_0$]:</p>
 <script type="math/tex; mode=display">
-B2U_w(\bold{x})\overset{.}=\sum_{i=0}^{w-1}x_i2^i</script><p>函数$B2U_w$能够被定义成一个$\{0，1\}^w$到{$0,\cdots,2^w-1$}的映射，注意，这个函数是一个双射。</p>
+B2U_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-1}x_i2^i</script><p>函数$B2U_w$能够被定义成一个$\{0，1\}^w$到{$0,\cdots,2^w-1$}的映射，注意，这个函数是一个双射。</p>
 <h3 id="补码编码"><a href="#补码编码" class="headerlink" title="补码编码"></a>补码编码</h3><p>​    我们用补码来表示有符号数，将字的最高位解释为负权(negative weigh)，用函数$B2T_w$(Binary to Two’s complement的缩写，长度为w)来表示：</p>
 <p>对向量<strong>x</strong>=[$x_{w-1},x_{w-2},\cdots,x_0$]:</p>
 <script type="math/tex; mode=display">
-B2T_w(\bold{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>​    最高位是符号位，它的权重是$-2^{w-1}$，同样它也是一个双射。</p>
+B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>​    最高位是符号位，它的权重是$-2^{w-1}$，同样它也是一个双射。</p>
 <blockquote>
 <p>某些C数据类型，特别是long型，在不同的机器上有不同的取值范围，而C语言标准只指定了每种数据类型的最小范围，而不是确定的范围。为了保证程序的可移植性，我们应该尽量使用宏来表示。</p>
 <p>对于Java而言，它有非常明确的标准，就是为了保证程序的可移植性。</p>
