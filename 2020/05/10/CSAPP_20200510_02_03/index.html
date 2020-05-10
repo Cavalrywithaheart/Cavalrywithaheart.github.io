@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="信息的表示和处理（二）">
+<meta name="description" content="信息的表示和处理（三）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息的表示和处理（二）">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;04&#x2F;CSAPP_20200504_02_02&#x2F;index.html">
+<meta property="og:title" content="信息的表示和处理（三）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;10&#x2F;CSAPP_20200510_02_03&#x2F;index.html">
 <meta property="og:site_name" content="Cavalry">
-<meta property="og:description" content="信息的表示和处理（二）">
+<meta property="og:description" content="信息的表示和处理（三）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T09:03:39.448Z">
+<meta property="og:updated_time" content="2020-05-10T14:10:03.317Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/04/CSAPP_20200504_02_02/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/10/CSAPP_20200510_02_03/"/>
 
 
 
 
 
-  <title>信息的表示和处理（二） | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>信息的表示和处理（三） | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/04/CSAPP_20200504_02_02/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/CSAPP_20200510_02_03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cavalry">
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">信息的表示和处理（二）</h1>
+          <h1 class="post-title" itemprop="name headline">信息的表示和处理（三）</h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-04T09:29:20+08:00">
-                2020-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-10T16:00:52+08:00">
+                2020-05-10
               </time>
             
 
@@ -339,49 +339,52 @@
       
 
       
-        <h1 id="信息的表示和处理（二）"><a href="#信息的表示和处理（二）" class="headerlink" title="信息的表示和处理（二）"></a>信息的表示和处理（二）</h1><a id="more"></a>
-<blockquote>
-<p>鉴于前面几篇阅读笔记都过于臃肿，后面将采用类似摘要的模式，仅在较重要概念时会叙述的比较详细。</p>
-</blockquote>
-<h2 id="整数表示"><a href="#整数表示" class="headerlink" title="整数表示"></a>整数表示</h2><p>​    C语言提供多种整数数据类型来表示有限范围的整数，值得注意的是，取值范围不是对称的——负数的范围比整数的范围大一。</p>
-<blockquote>
-<p>C和C++都支持有符号数和无符号数，而Java只支持有符号数。</p>
-</blockquote>
-<h3 id="无符号数的表示"><a href="#无符号数的表示" class="headerlink" title="无符号数的表示"></a>无符号数的表示</h3><p>​    我们用一个函数$B2U_w$(Binary to Unsigned的缩写，长度为w)来表示无符号数。无符号数编码的定义</p>
-<p>对向量<strong>x</strong>=[$x_{w-1},x_{w-2},\cdots,x_0$]:</p>
-<script type="math/tex; mode=display">
-B2U_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-1}x_i2^i</script><p>函数$B2U_w$能够被定义成一个$\{0，1\}^w$到{$0,\cdots,2^w-1$}的映射，注意，这个函数是一个双射。</p>
-<h3 id="补码编码"><a href="#补码编码" class="headerlink" title="补码编码"></a>补码编码</h3><p>​    我们用补码来表示有符号数，将字的最高位解释为负权(negative weigh)，用函数$B2T_w$(Binary to Two’s complement的缩写，长度为w)来表示：</p>
-<p>对向量<strong>x</strong>=[$x_{w-1},x_{w-2},\cdots,x_0$]:</p>
-<script type="math/tex; mode=display">
-B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>​    最高位是符号位，它的权重是$-2^{w-1}$，同样它也是一个双射。</p>
-<blockquote>
-<p>某些C数据类型，特别是long型，在不同的机器上有不同的取值范围，而C语言标准只指定了每种数据类型的最小范围，而不是确定的范围。为了保证程序的可移植性，我们应该尽量使用宏来表示。</p>
-<p>对于Java而言，它有非常明确的标准，就是为了保证程序的可移植性。</p>
-</blockquote>
-<h3 id="有符号数和无符号数之间的转换"><a href="#有符号数和无符号数之间的转换" class="headerlink" title="有符号数和无符号数之间的转换"></a>有符号数和无符号数之间的转换</h3><p>​    C语言中，强制转化的结果保持位值不变，只是改变了解释这些位的方式，也就是对这些位串用不同的函数来解释，如上文提到的B2T,B2U等。</p>
-<p>​    注意当遇到&gt;或者&lt;号时，进行有无符号的类型转换可能会得到非直观的结果。</p>
-<h3 id="拓展一个数字的位表示"><a href="#拓展一个数字的位表示" class="headerlink" title="拓展一个数字的位表示"></a>拓展一个数字的位表示</h3><p>​    要将一个较大的数转换成一个较小的数又没有损失，这是不可能的，而要将一个较小的数转换成较大的数，这应该总是可能的。</p>
-<p>​    要将一个无符号数转换成一个更大的数据类型，我们只要简单地在表示的开头添加0，这种运算称为零运算(zero extension)。</p>
-<p>​    而要将一个补码数字转化成更大的数据类型，可以执行一个符号拓展(sign extension)，在表中添加最高有效位的值，下面给出证明：</p>
+        <h1 id="信息的表示和处理（三）"><a href="#信息的表示和处理（三）" class="headerlink" title="信息的表示和处理（三）"></a>信息的表示和处理（三）</h1><a id="more"></a>
+<h2 id="整数运算"><a href="#整数运算" class="headerlink" title="整数运算"></a>整数运算</h2><h3 id="无符号数加法"><a href="#无符号数加法" class="headerlink" title="无符号数加法"></a>无符号数加法</h3><script type="math/tex; mode=display">
+\begin{align}
+对满足0\leq x,y\leq2^w的x和y有：\notag\\
+&x+_w^uy=\begin{cases}x+y&正常\notag\\x+y-2^w&溢出\notag\end{cases}
+\end{align}</script><h3 id="补码加法"><a href="#补码加法" class="headerlink" title="补码加法"></a>补码加法</h3><p>​    两个数的w位补码之和与无符号之和有完全相同的位级表示。实际上，大多数计算机使用同样的机器指令来执行无符号或者有符号加法。因此，我们可以把补码表示转换成无符号数进行运算，最后再用补码的规则进行解释。</p>
 <script type="math/tex; mode=display">
 \begin{align}
-令w^{'}=w+k:\notag\\
+对满足-2^{w-1}\leq x,y\leq2^{w-1}-1的整数x和y，有：\notag\\
+&x+^t_wy=\begin{cases}x+y-2^w,&2^{w-1}\leq x+y&正溢出\notag\\x+y,&-2^{w-1}\leq x+y\leq 2^{w-1}&正常\\x+y+2^w,&x+y<-2^{w-1}&负溢出\notag\end{cases}
+\end{align}</script><h3 id="补码的非"><a href="#补码的非" class="headerlink" title="补码的非"></a>补码的非</h3><p>计算一个数x的补码非的几种方式：</p>
+<ul>
+<li><p>在C语言中，对于任意整数值x，计算-x和~x+1得到的结果是一样的。</p>
+</li>
+<li><p>将位向量分为两部分，假设k是最右边的1的位置，因而x的位级表示形如$[x_{w-1},x_{w-2},\cdots,x_{k+1},1,0,\cdots,0]。$而它的非则是$[\sim x_{w-1},\sim x_{w-2},\cdots,\sim x_{k+1},1,0,\cdots,0]$，也就是，我们对位k左边的所有位都取反。</p>
+</li>
+</ul>
+<h3 id="无符号乘法"><a href="#无符号乘法" class="headerlink" title="无符号乘法"></a>无符号乘法</h3><p>​    同样的，当乘法溢出时，取低w位表示。</p>
+<script type="math/tex; mode=display">
+\begin{align}
+对满足0\leq x,y\leq UMax_w的x和y有：\notag\\
 \notag\\
-&B2T([x_{w-1},\cdots,x_{w-1},x_{w-2},\cdots,x_{0}])\notag\\
-\\
-={}&-x_{w-1}2^w+\sum_{i=0}^{w-1}x_i2^i\notag\\
-={}&-x_{w-1}2^w+x_{w-1}2^{w-1}+\sum_{i=0}^{w-2}x_i2^i\notag\\
-={}&-x_{w-1}(2^w-2^{w-1})+\sum_{i=0}^{w-2}x_i2^i\notag\\
-={}&-x_{w-1}2^{w-1}+\sum_{i=0}^{w-2}x_i2^i\notag\\
-={}&B2T_w([x_{w-1},x_{w-2},\cdots,x_{0}])\notag\\
-
-\end{align}</script><h3 id="截断数字"><a href="#截断数字" class="headerlink" title="截断数字"></a>截断数字</h3><p>​    当我们将一个w位的位向量<strong>x</strong>=[$x_{w-1},x_{w-2},\cdots,x_0$]截断为一个k位数字时，我们会丢弃高的w-k位，得到一个位向量<strong>x</strong>‘=[$x_{k-1},x_{k-2},\cdots,x_0$]。</p>
-<p>​    对于无符号数而言，显然$x’=xmod2^k$。</p>
-<p>​    而对于用补码表示的数而言，应用$U2T_k$产生的效果就是把最高有效位$x_{k-1}$的权重从$2^{k-1}$转变成$-2^{k-1}$，因此有有$x’=U2T_k(xmod2^k)$。</p>
+x*^u_wy=(x\cdot y)mod2^w\notag
+\end{align}</script><h3 id="补码乘法"><a href="#补码乘法" class="headerlink" title="补码乘法"></a>补码乘法</h3><p>​    同样的，有：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+对满足TMin_{w}\leq x,y\leq TMax_w的x和y有：\notag\\
+\notag\\
+x*^u_wy=U2T_w((x\cdot y)mod2^w)\notag
+\end{align}</script><h3 id="乘以常数"><a href="#乘以常数" class="headerlink" title="乘以常数"></a>乘以常数</h3><p>​    以往，在大多数机器上，整数乘法指令相当慢，需要10个或者更多的时钟周期，然而其他整数运算（如加法、减法、位级运算和移位）只需要1个时钟周期。即使在较为优秀的机器上，乘法所需的时间周期也比加法所需的长的多。因此，编译器会尝试用位运算和加法的组合来代替常数因子的乘法。</p>
+<p>​    例如，与2的k次幂相乘时，位串会往左移k位，若溢出，则朝低位截断。</p>
+<p>​    考虑一个任务，对于某个常数K的表达式x*K生成代码。编译器会将K的二进制表达为一组0和1交替的序列。例如14会被表示成[(0$\cdots$0)(111)(0)]，考虑一组从位置n（这里n=3）到位置m（这里m=1）连续的1，我们可以采用下面两种方式来表示：</p>
+<ul>
+<li>(x&lt;&lt;n)+(x&lt;&lt;(n-1))+$\cdots$+(x&lt;&lt;m)</li>
+<li>(x&lt;&lt;(n+1))-(x&lt;&lt;m)</li>
+</ul>
 <blockquote>
-<p>无符号的数和有符号的数直接导致的细小差异可能会导致巨大的漏洞，使用时应当小心谨慎。</p>
+<p>具体会不会采用这种优化方式取决于指令的相对速度以及机器高度，大部分编译器只在需要少量移位、加法和减法就足够的时候才会使用这种优化。</p>
 </blockquote>
+<h3 id="除以2的幂"><a href="#除以2的幂" class="headerlink" title="除以2的幂"></a>除以2的幂</h3><p>​    除法是右移而不是左移，注意对于无符号表示，右移只会在高位填上0，而对于补码表示，右移则会在高位填上符号位。</p>
+<p>​    当一个补码表示的负数进行右移时会导致向下舍入，这时候需要采用一种偏置(biasing)的手段来使这个值向上舍入。</p>
+<blockquote>
+<p>​    C变量x和k分别有补码值x和无符号数值k，且$0\leq k<w$，则当执行算术移位时，C表达式(x+(1<<k)-1)>&gt;k产生数值$[\frac{x}{2^k}]$。x+(1&lt;&lt;k)-1得到数值$x+2^k-1$，将这个值算术右移k位就能产生$[\frac{x}{2^k}]$。</p>
+<p>​    对于使用算术右移的补码机器，C表达式 <code>(x&lt;0?x+(1&lt;&lt;k)-1:x)&gt;&gt;k</code>可以起到这个效果。</p>
+</blockquote>
+<p>​    然而，不幸的是，这种办法不能推广到任意常数，这与乘法有所不同。</p>
 
       
     </div>
@@ -406,8 +409,8 @@ B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/06/CSAPP_20200406_02_01/" rel="next" title="信息的表示和处理（一）">
-                <i class="fa fa-chevron-left"></i> 信息的表示和处理（一）
+              <a href="/2020/05/04/CSAPP_20200504_02_02/" rel="next" title="信息的表示和处理（二）">
+                <i class="fa fa-chevron-left"></i> 信息的表示和处理（二）
               </a>
             
           </div>
@@ -415,10 +418,6 @@ B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/10/CSAPP_20200510_02_03/" rel="prev" title="信息的表示和处理（三）">
-                信息的表示和处理（三） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,7 +540,7 @@ B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息的表示和处理（二）"><span class="nav-number">1.</span> <span class="nav-text">信息的表示和处理（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整数表示"><span class="nav-number">1.1.</span> <span class="nav-text">整数表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号数的表示"><span class="nav-number">1.1.1.</span> <span class="nav-text">无符号数的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补码编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">补码编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有符号数和无符号数之间的转换"><span class="nav-number">1.1.3.</span> <span class="nav-text">有符号数和无符号数之间的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展一个数字的位表示"><span class="nav-number">1.1.4.</span> <span class="nav-text">拓展一个数字的位表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截断数字"><span class="nav-number">1.1.5.</span> <span class="nav-text">截断数字</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息的表示和处理（三）"><span class="nav-number">1.</span> <span class="nav-text">信息的表示和处理（三）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整数运算"><span class="nav-number">1.1.</span> <span class="nav-text">整数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号数加法"><span class="nav-number">1.1.1.</span> <span class="nav-text">无符号数加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补码加法"><span class="nav-number">1.1.2.</span> <span class="nav-text">补码加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补码的非"><span class="nav-number">1.1.3.</span> <span class="nav-text">补码的非</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号乘法"><span class="nav-number">1.1.4.</span> <span class="nav-text">无符号乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补码乘法"><span class="nav-number">1.1.5.</span> <span class="nav-text">补码乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘以常数"><span class="nav-number">1.1.6.</span> <span class="nav-text">乘以常数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#除以2的幂"><span class="nav-number">1.1.7.</span> <span class="nav-text">除以2的幂</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
