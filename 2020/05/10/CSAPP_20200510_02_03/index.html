@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="信息的表示和处理（三）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T14:10:03.317Z">
+<meta property="og:updated_time" content="2020-05-10T14:20:30.631Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -347,7 +347,7 @@
 \end{align}</script><h3 id="补码加法"><a href="#补码加法" class="headerlink" title="补码加法"></a>补码加法</h3><p>​    两个数的w位补码之和与无符号之和有完全相同的位级表示。实际上，大多数计算机使用同样的机器指令来执行无符号或者有符号加法。因此，我们可以把补码表示转换成无符号数进行运算，最后再用补码的规则进行解释。</p>
 <script type="math/tex; mode=display">
 \begin{align}
-对满足-2^{w-1}\leq x,y\leq2^{w-1}-1的整数x和y，有：\notag\\
+对满足-2^{w-1}\leq x,&y\leq2^{w-1}-1的整数x和y，有：\notag\\
 &x+^t_wy=\begin{cases}x+y-2^w,&2^{w-1}\leq x+y&正溢出\notag\\x+y,&-2^{w-1}\leq x+y\leq 2^{w-1}&正常\\x+y+2^w,&x+y<-2^{w-1}&负溢出\notag\end{cases}
 \end{align}</script><h3 id="补码的非"><a href="#补码的非" class="headerlink" title="补码的非"></a>补码的非</h3><p>计算一个数x的补码非的几种方式：</p>
 <ul>
@@ -381,7 +381,7 @@ x*^u_wy=U2T_w((x\cdot y)mod2^w)\notag
 <h3 id="除以2的幂"><a href="#除以2的幂" class="headerlink" title="除以2的幂"></a>除以2的幂</h3><p>​    除法是右移而不是左移，注意对于无符号表示，右移只会在高位填上0，而对于补码表示，右移则会在高位填上符号位。</p>
 <p>​    当一个补码表示的负数进行右移时会导致向下舍入，这时候需要采用一种偏置(biasing)的手段来使这个值向上舍入。</p>
 <blockquote>
-<p>​    C变量x和k分别有补码值x和无符号数值k，且$0\leq k<w$，则当执行算术移位时，C表达式(x+(1<<k)-1)>&gt;k产生数值$[\frac{x}{2^k}]$。x+(1&lt;&lt;k)-1得到数值$x+2^k-1$，将这个值算术右移k位就能产生$[\frac{x}{2^k}]$。</p>
+<p>​    C变量x和k分别有补码值x和无符号数值k，且$0 \leq k<w$，则当执行算术移位时，C表达式`(x+(1<<k)-1)>&gt;k`可以产生数值$[\frac{x}{2^k}]$。即x+(1&lt;&lt;k)-1得到数值$x+2^k-1$，将这个值算术右移k位就能产生$[\frac{x}{2^k}]$。</p>
 <p>​    对于使用算术右移的补码机器，C表达式 <code>(x&lt;0?x+(1&lt;&lt;k)-1:x)&gt;&gt;k</code>可以起到这个效果。</p>
 </blockquote>
 <p>​    然而，不幸的是，这种办法不能推广到任意常数，这与乘法有所不同。</p>
