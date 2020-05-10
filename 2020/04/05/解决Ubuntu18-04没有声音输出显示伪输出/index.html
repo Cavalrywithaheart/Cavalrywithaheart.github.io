@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output&#x2F;dummy output)。Google以后发现大概是设备没有找到声卡的问题（众所周知dell是对Ubuntu支持最友好的公司之一），可能是因为强制关机导致的。 ​    首先，我按照网上的提示，修改了两个文件，&#x2F;etc&#x2F;modprobe.d&#x2F;alsa-base.conf和&#x2F;et">
+<meta name="description" content="解决Ubuntu18.04没有声音输出显示伪输出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Ubuntu18.04没有声音输出显示伪输出">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;05&#x2F;%E8%A7%A3%E5%86%B3Ubuntu18-04%E6%B2%A1%E6%9C%89%E5%A3%B0%E9%9F%B3%E8%BE%93%E5%87%BA%E6%98%BE%E7%A4%BA%E4%BC%AA%E8%BE%93%E5%87%BA&#x2F;index.html">
 <meta property="og:site_name" content="Cavalry">
-<meta property="og:description" content="​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output&#x2F;dummy output)。Google以后发现大概是设备没有找到声卡的问题（众所周知dell是对Ubuntu支持最友好的公司之一），可能是因为强制关机导致的。 ​    首先，我按照网上的提示，修改了两个文件，&#x2F;etc&#x2F;modprobe.d&#x2F;alsa-base.conf和&#x2F;et">
+<meta property="og:description" content="解决Ubuntu18.04没有声音输出显示伪输出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-06T12:34:24.701Z">
+<meta property="og:updated_time" content="2020-05-10T08:02:49.518Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -339,7 +339,7 @@
       
 
       
-        <a id="more"></a>
+        <h1 id="解决Ubuntu18-04没有声音输出显示伪输出"><a href="#解决Ubuntu18-04没有声音输出显示伪输出" class="headerlink" title="解决Ubuntu18.04没有声音输出显示伪输出"></a>解决Ubuntu18.04没有声音输出显示伪输出</h1><a id="more"></a>
 <p>​    今天晚上当我打开Ubuntu想听听歌时，突然发现电脑什么声音都不提示，显示伪输出(Dummy Output/dummy output)。Google以后发现大概是设备没有找到声卡的问题<del>（众所周知dell是对Ubuntu支持最友好的公司之一）</del>，可能是因为强制关机导致的。</p>
 <p>​    首先，我按照网上的提示，修改了两个文件，<em>/etc/modprobe.d/alsa-base.conf</em>和<em>/etc/modprobe.d/blacklist.conf</em>，具体的指令可以参考如下：<em>echo “options snd-hda-intel dmic_detect=0” | sudo tee -a /etc/modprobe.d/alsa-base.conf</em>和<em>echo “blacklist snd_soc_skl” | sudo tee -a /etc/modprobe.d/blacklist.conf</em>，然而这并没有解决我的问题。</p>
 <p>​    然后我按照网友的提示下载了pulseaudio，想按他们说的修改一些配置（像把输出设备从扬声器改成虚拟耳机之类），然而也没有生效。</p>
@@ -433,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -449,7 +458,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -485,6 +494,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解决Ubuntu18-04没有声音输出显示伪输出"><span class="nav-number">1.</span> <span class="nav-text">解决Ubuntu18.04没有声音输出显示伪输出</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
