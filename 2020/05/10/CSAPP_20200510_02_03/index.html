@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="信息的表示和处理（三）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T14:20:30.631Z">
+<meta property="og:updated_time" content="2020-05-11T16:00:38.663Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -340,15 +340,15 @@
 
       
         <h1 id="信息的表示和处理（三）"><a href="#信息的表示和处理（三）" class="headerlink" title="信息的表示和处理（三）"></a>信息的表示和处理（三）</h1><a id="more"></a>
-<h2 id="整数运算"><a href="#整数运算" class="headerlink" title="整数运算"></a>整数运算</h2><h3 id="无符号数加法"><a href="#无符号数加法" class="headerlink" title="无符号数加法"></a>无符号数加法</h3><script type="math/tex; mode=display">
-\begin{align}
-对满足0\leq x,y\leq2^w的x和y有：\notag\\
-&x+_w^uy=\begin{cases}x+y&正常\notag\\x+y-2^w&溢出\notag\end{cases}
-\end{align}</script><h3 id="补码加法"><a href="#补码加法" class="headerlink" title="补码加法"></a>补码加法</h3><p>​    两个数的w位补码之和与无符号之和有完全相同的位级表示。实际上，大多数计算机使用同样的机器指令来执行无符号或者有符号加法。因此，我们可以把补码表示转换成无符号数进行运算，最后再用补码的规则进行解释。</p>
+<h2 id="整数运算"><a href="#整数运算" class="headerlink" title="整数运算"></a>整数运算</h2><h3 id="无符号数加法"><a href="#无符号数加法" class="headerlink" title="无符号数加法"></a>无符号数加法</h3><p>对满足$0\leq x,y\leq2^w$的x和y有：</p>
 <script type="math/tex; mode=display">
 \begin{align}
-对满足-2^{w-1}\leq x,&y\leq2^{w-1}-1的整数x和y，有：\notag\\
-&x+^t_wy=\begin{cases}x+y-2^w,&2^{w-1}\leq x+y&正溢出\notag\\x+y,&-2^{w-1}\leq x+y\leq 2^{w-1}&正常\\x+y+2^w,&x+y<-2^{w-1}&负溢出\notag\end{cases}
+&x+{}_w^uy=\begin{cases}x+y&正常\notag\\x+y-2^w&溢出\notag\end{cases}
+\end{align}</script><h3 id="补码加法"><a href="#补码加法" class="headerlink" title="补码加法"></a>补码加法</h3><p>​    两个数的w位补码之和与无符号之和有完全相同的位级表示。实际上，大多数计算机使用同样的机器指令来执行无符号或者有符号加法。因此，我们可以把补码表示转换成无符号数进行运算，最后再用补码的规则进行解释。</p>
+<p>​    对满足$-2^{w-1}\leq x,y\leq2^{w-1}-1$的整数x和y，有：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&x+{}^t_wy=\begin{cases}x+y-2^w,&2^{w-1}\leq x+y&正溢出\notag\\x+y,&-2^{w-1}\leq x+y\leq 2^{w-1}&正常\\x+y+2^w,&x+y<-2^{w-1}&负溢出\notag\end{cases}
 \end{align}</script><h3 id="补码的非"><a href="#补码的非" class="headerlink" title="补码的非"></a>补码的非</h3><p>计算一个数x的补码非的几种方式：</p>
 <ul>
 <li><p>在C语言中，对于任意整数值x，计算-x和~x+1得到的结果是一样的。</p>
@@ -357,17 +357,15 @@
 </li>
 </ul>
 <h3 id="无符号乘法"><a href="#无符号乘法" class="headerlink" title="无符号乘法"></a>无符号乘法</h3><p>​    同样的，当乘法溢出时，取低w位表示。</p>
+<p>​    对满足$0\leq x,y\leq UMax_w$的x和y有：</p>
 <script type="math/tex; mode=display">
 \begin{align}
-对满足0\leq x,y\leq UMax_w的x和y有：\notag\\
-\notag\\
-x*^u_wy=(x\cdot y)mod2^w\notag
+x*{}^u_wy=(x\cdot y)mod2^w\notag
 \end{align}</script><h3 id="补码乘法"><a href="#补码乘法" class="headerlink" title="补码乘法"></a>补码乘法</h3><p>​    同样的，有：</p>
+<p>​    对满足$TMin_{w}\leq x,y\leq TMax_w$的x和y有：</p>
 <script type="math/tex; mode=display">
 \begin{align}
-对满足TMin_{w}\leq x,y\leq TMax_w的x和y有：\notag\\
-\notag\\
-x*^u_wy=U2T_w((x\cdot y)mod2^w)\notag
+x*{}^u_wy=U2T_w((x\cdot y)mod2^w)\notag
 \end{align}</script><h3 id="乘以常数"><a href="#乘以常数" class="headerlink" title="乘以常数"></a>乘以常数</h3><p>​    以往，在大多数机器上，整数乘法指令相当慢，需要10个或者更多的时钟周期，然而其他整数运算（如加法、减法、位级运算和移位）只需要1个时钟周期。即使在较为优秀的机器上，乘法所需的时间周期也比加法所需的长的多。因此，编译器会尝试用位运算和加法的组合来代替常数因子的乘法。</p>
 <p>​    例如，与2的k次幂相乘时，位串会往左移k位，若溢出，则朝低位截断。</p>
 <p>​    考虑一个任务，对于某个常数K的表达式x*K生成代码。编译器会将K的二进制表达为一组0和1交替的序列。例如14会被表示成[(0$\cdots$0)(111)(0)]，考虑一组从位置n（这里n=3）到位置m（这里m=1）连续的1，我们可以采用下面两种方式来表示：</p>
@@ -380,10 +378,8 @@ x*^u_wy=U2T_w((x\cdot y)mod2^w)\notag
 </blockquote>
 <h3 id="除以2的幂"><a href="#除以2的幂" class="headerlink" title="除以2的幂"></a>除以2的幂</h3><p>​    除法是右移而不是左移，注意对于无符号表示，右移只会在高位填上0，而对于补码表示，右移则会在高位填上符号位。</p>
 <p>​    当一个补码表示的负数进行右移时会导致向下舍入，这时候需要采用一种偏置(biasing)的手段来使这个值向上舍入。</p>
-<blockquote>
-<p>​    C变量x和k分别有补码值x和无符号数值k，且$0 \leq k<w$，则当执行算术移位时，C表达式`(x+(1<<k)-1)>&gt;k`可以产生数值$[\frac{x}{2^k}]$。即x+(1&lt;&lt;k)-1得到数值$x+2^k-1$，将这个值算术右移k位就能产生$[\frac{x}{2^k}]$。</p>
-<p>​    对于使用算术右移的补码机器，C表达式 <code>(x&lt;0?x+(1&lt;&lt;k)-1:x)&gt;&gt;k</code>可以起到这个效果。</p>
-</blockquote>
+<p>​    利用属性[x/y]=[(x+y-1)/y]，当y=$2^k$时，C表达式x+(1&lt;&lt;k)-1得到数值$x+2^k-1$，将这个值算术右移k位即产生$[x/2^k]$。</p>
+<p>​    对于使用算术右移的补码机器，C表达式 <code>(x&lt;0?x+(1&lt;&lt;k)-1:x)&gt;&gt;k</code>起到向上1取整的效果。</p>
 <p>​    然而，不幸的是，这种办法不能推广到任意常数，这与乘法有所不同。</p>
 
       
@@ -418,6 +414,10 @@ x*^u_wy=U2T_w((x\cdot y)mod2^w)\notag
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/13/CSAPP_20200513_02_04/" rel="prev" title="信息的表示和处理（四）">
+                信息的表示和处理（四） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -494,7 +494,7 @@ x*^u_wy=U2T_w((x\cdot y)mod2^w)\notag
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
