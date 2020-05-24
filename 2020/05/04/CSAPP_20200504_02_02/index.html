@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="信息的表示和处理（二）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-11T15:59:26.707Z">
+<meta property="og:updated_time" content="2020-05-18T13:28:30.305Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -347,11 +347,11 @@
 <blockquote>
 <p>C和C++都支持有符号数和无符号数，而Java只支持有符号数。</p>
 </blockquote>
-<h3 id="无符号数的表示"><a href="#无符号数的表示" class="headerlink" title="无符号数的表示"></a>无符号数的表示</h3><p>​    我们用一个函数$B2U_w$(Binary to Unsigned的缩写，长度为w)来表示无符号数。无符号数编码的定义</p>
+<h3 id="无符号数的表示"><a href="#无符号数的表示" class="headerlink" title="无符号数的表示"></a>无符号数的表示</h3><p>​    我们用一个函数<strong>$B2U_w$(Binary to Unsigned)</strong>的缩写，长度为w)来表示无符号数。无符号数编码的定义</p>
 <p>对向量<strong>x</strong>=[$x_{w-1},x_{w-2},\cdots,x_0$]:</p>
 <script type="math/tex; mode=display">
 B2U_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-1}x_i2^i</script><p>函数$B2U_w$能够被定义成一个$\{0，1\}^w$到{$0,\cdots,2^w-1$}的映射，注意，这个函数是一个双射。</p>
-<h3 id="补码编码"><a href="#补码编码" class="headerlink" title="补码编码"></a>补码编码</h3><p>​    我们用补码来表示有符号数，将字的最高位解释为负权(negative weigh)，用函数$B2T_w$(Binary to Two’s complement的缩写，长度为w)来表示：</p>
+<h3 id="补码编码"><a href="#补码编码" class="headerlink" title="补码编码"></a>补码编码</h3><p>​    我们用补码来表示有符号数，将字的最高位解释为<strong>负权(negative weigh)</strong>，用函数<strong>$B2T_w$</strong>(<strong>Binary to Two’s complement</strong>的缩写，长度为w)来表示：</p>
 <p>对向量<strong>x</strong>=[$x_{w-1},x_{w-2},\cdots,x_0$]:</p>
 <script type="math/tex; mode=display">
 B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>​    最高位是符号位，它的权重是$-2^{w-1}$，同样它也是一个双射。</p>
@@ -363,7 +363,7 @@ B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>�
 <p>​    注意当遇到&gt;或者&lt;号时，进行有无符号的类型转换可能会得到非直观的结果。</p>
 <h3 id="拓展一个数字的位表示"><a href="#拓展一个数字的位表示" class="headerlink" title="拓展一个数字的位表示"></a>拓展一个数字的位表示</h3><p>​    要将一个较大的数转换成一个较小的数又没有损失，这是不可能的，而要将一个较小的数转换成较大的数，这应该总是可能的。</p>
 <p>​    要将一个无符号数转换成一个更大的数据类型，我们只要简单地在表示的开头添加0，这种运算称为零运算(zero extension)。</p>
-<p>​    而要将一个补码数字转化成更大的数据类型，可以执行一个符号拓展(sign extension)，在表中添加最高有效位的值，下面给出证明：</p>
+<p>​    而要将一个补码数字转化成更大的数据类型，可以执行一个<strong>符号拓展(sign extension)</strong>，在表中添加最高有效位的值，下面给出证明：</p>
 <p>​    令w’=w+k:</p>
 <script type="math/tex; mode=display">
 \begin{align}
@@ -493,7 +493,7 @@ B2T_w(\textbf{x})\overset{.}=\sum_{i=0}^{w-2}x_i2^i+X_{w-1}2^{w-1}</script><p>�
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

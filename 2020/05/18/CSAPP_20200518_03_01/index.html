@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="信息的表示和处理（一）">
+<meta name="description" content="程序的机器级表示（一）程序编码机器级编程的两种抽象 由指令集体系结构或指令集架构(Instruction Set Architecture, ISA)来定义机器级程序的格式和行为，它定义了处理器状态、指令的格式，以及每条指令对状态的影响。 机器级程序使用的内存地址是虚拟地址，提供的内存模型看上去是一个非常大的字节数组。存储器系统的实际实现是讲多个硬件存储器和操作系统软件组合起来。  机器代码​">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息的表示和处理（一）">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;06&#x2F;CSAPP_20200406_02_01&#x2F;index.html">
+<meta property="og:title" content="程序的机器级表示（一）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;18&#x2F;CSAPP_20200518_03_01&#x2F;index.html">
 <meta property="og:site_name" content="Cavalry">
-<meta property="og:description" content="信息的表示和处理（一）">
+<meta property="og:description" content="程序的机器级表示（一）程序编码机器级编程的两种抽象 由指令集体系结构或指令集架构(Instruction Set Architecture, ISA)来定义机器级程序的格式和行为，它定义了处理器状态、指令的格式，以及每条指令对状态的影响。 机器级程序使用的内存地址是虚拟地址，提供的内存模型看上去是一个非常大的字节数组。存储器系统的实际实现是讲多个硬件存储器和操作系统软件组合起来。  机器代码​">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-18T13:18:35.798Z">
+<meta property="og:updated_time" content="2020-05-24T01:42:46.534Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/06/CSAPP_20200406_02_01/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/18/CSAPP_20200518_03_01/"/>
 
 
 
 
 
-  <title>信息的表示和处理（一） | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>程序的机器级表示（一） | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/CSAPP_20200406_02_01/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/CSAPP_20200518_03_01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cavalry">
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">信息的表示和处理（一）</h1>
+          <h1 class="post-title" itemprop="name headline">程序的机器级表示（一）</h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T15:49:42+08:00">
-                2020-04-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-18T20:29:14+08:00">
+                2020-05-18
               </time>
             
 
@@ -339,52 +339,53 @@
       
 
       
-        <h1 id="信息的表示和处理（一）"><a href="#信息的表示和处理（一）" class="headerlink" title="信息的表示和处理（一）"></a>信息的表示和处理（一）</h1><a id="more"></a>
-<h2 id="如何表示符号"><a href="#如何表示符号" class="headerlink" title="如何表示符号"></a>如何表示符号</h2><p>​    现代计算机系统储存和处理的信息以二值符号表示，这些二进制数字称为位(bit)，对于计算机而言，二进制能被很容易的处理和保存，例如可以表示为纸袋上有孔或者无孔，导线上的高电压或者低电压。</p>
-<p>​    当许多这样的位组合在一起，可以表示巨量的信息，后面我们主要来研究三种数字表达方式：</p>
-<ol>
-<li><strong>无符号(unsigned)编码</strong>基于传统的二进制表示大于等于0的数字。</li>
-<li><strong>补码(two’s-complement)</strong>编码表示有符号整数。</li>
-<li><strong>浮点数(floating-point)编码</strong>表示实数的科学计数法的以2为基数的版本。</li>
+        <h1 id="程序的机器级表示（一）"><a href="#程序的机器级表示（一）" class="headerlink" title="程序的机器级表示（一）"></a>程序的机器级表示（一）</h1><h2 id="程序编码"><a href="#程序编码" class="headerlink" title="程序编码"></a>程序编码</h2><h3 id="机器级编程的两种抽象"><a href="#机器级编程的两种抽象" class="headerlink" title="机器级编程的两种抽象"></a>机器级编程的两种抽象</h3><ol>
+<li>由<strong>指令集体系结构或指令集架构(Instruction Set Architecture, ISA)</strong>来定义机器级程序的格式和行为，它定义了处理器状态、指令的格式，以及每条指令对状态的影响。</li>
+<li>机器级程序使用的内存地址是虚拟地址，提供的内存模型看上去是一个非常大的字节数组。存储器系统的实际实现是讲多个硬件存储器和操作系统软件组合起来。</li>
 </ol>
-<p>计算机的表示方式是用有限的位来对一个数字编码，当这个数字超出了一定数量的位能表示的范围的时候，某些运算就会溢出(overflow)，导致一些意料之外的结果。</p>
-<blockquote>
-<p>​    在C语言中，浮点数有完全不同的数学属性，虽然溢出会产生特殊的值($+\infty$)，但是一组正数的乘积总是正的。由于表示的精度有限，所以浮点运算总是不可结合的例如(3.14+1e20)-1e20的值是0.0而3.14+(le20-lee20)的值会是3.14。整数表达是精确的，而浮点数则是近似的。</p>
-</blockquote>
-<h2 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h2><p>​    大部分计算机使用8位的块，或者<strong>字节(byte)</strong>，作为最小的可寻址单位，而不是访问内存中单独的位。内存中的每个字节都由一个唯一的数字表示，称为地址(address)。C语言中一个指针的值就是像这样的一个地址，C编译器还把指针跟地址类型联系起来，这样就可以根据指针类型，生成不同的机器级代码来访问对应的地址。</p>
-<h3 id="字数据大小"><a href="#字数据大小" class="headerlink" title="字数据大小"></a>字数据大小</h3><p>​    每台计算机都有一个子长，指明指针数据的标称大小。因为虚拟地址是由这样的一个字来编码的，所以字长决定的最重要的系统参数就是虚拟地址空间的最大大小，所以字长决定的1最重要的系统参数就是虚拟地址空间的最大大小。例如，字长为n的机器虚拟地址的范围就是0~$2^{n}-1$，由此可见，64位机器的存储空间要远远大于32位机器。大多数64位机器都可以运行为32位机器编译的程序，这是一种向后兼容。</p>
-<blockquote>
-<p>以gcc为例，若用指令<code>gcc -m32 prog.c</code>编译出来的程序既可以在32位机器上运行也可以在64位机器上运行，而若用指令<code>gcc -m64 prog.c</code>编译，则编译出来的程序只能在64位机器上运行。</p>
-</blockquote>
-<p>​    注意，我们将程序称为“32位程序”还是“64位程序”取决于它们以什么样的方式编译而不是在什么样的机器上编译。</p>
-<p>​    为了避免相同的数据类型在不同位数的程序中占用的字节数不一样，ISO C99引入了int32_t和int64_t，它们分别为4个字节和8个字节，使用确定类型的整数类型是程序员准确控制数据表示的最佳路径，这样可以提升程序的可移植性。</p>
-<h3 id="寻址和字节顺序"><a href="#寻址和字节顺序" class="headerlink" title="寻址和字节顺序"></a>寻址和字节顺序</h3><p>​    对于一个需要跨越多字节的程序对象，我们主要关注两个点：这些字节的地址，以及各个字节的排列顺序。地址的排列顺序有两个通用的规则，即所谓的<strong>小端法(little endian)</strong>和<strong>大端法(big endian)</strong>。</p>
-<blockquote>
-<p>假设有一个int型变量x，起始地址是0x100处，十六进制值是0x01234567，则在大端模式机器和小端模式机器上的字节顺序如下：</p>
-<p>大端法</p>
-<p>​            $\cdots{}\quad\big{|}\quad01\quad\big{|}\quad23\quad\big{|}\quad45\quad\big{|}\quad67\quad\big{|}\quad\cdots{}$</p>
-<p>小端法</p>
-<p>​            $\cdots{}\quad\big{|}\quad67\quad\big{|}\quad45\quad\big{|}\quad23\quad\big{|}\quad01\quad\big{|}\quad\cdots{}$</p>
-<p>地址均为从左到右增大，在字0x01234567中，高位字节的十六进制为0x01而低位字节值为0x67。</p>
-</blockquote>
-<p>​    我们可以看到，小端模式是低字节在低地址的模式，而大端模式则与之相反，大多数Intel兼容机都只用小端模式，而IBM和Oracle的大多数机器则是按大端模式操作，有些新的微处理器可以在两种模式间进行选择。注意，一旦配置成具体的操作系统，那字节顺序也就固定下来，比如用于手机的ARM微处理器其硬件可以按小端或者大端两种模式来操作，但是这些芯片上最常见的操作系统（如IOS和Android）却只能运行于小段模式。</p>
-<p>​    倘若我们在小端机器上编写了一段代码，将它发送到大端机器上进行处理时或者反过来时，接收程序会发现字里的字节成了反序的。为了避免这类问题，网络应用程序的代码必须遵守已建立的有关规则。这类问题会在之后再进行讨论。</p>
-<p>​    还有一种情况是，当规避正常类型系统的程序时，在C中，可以使用强制类型转换(cast)或者联合(union)来允许一种数据类型引用一个对象，而这种数据类型和创建这个对象时定义的数据不同，虽然大多数应用编程都强烈不推荐这种技巧，但是这种技巧对系统级编程却非常有用，甚至是必须的。</p>
-<blockquote>
-<p>注意，在C中指针会被视为最低字节的地址。</p>
-<p>指针是C和C++中独有的操作，如&amp;x创建了一个保存变量x的位置的指针，它的类型取决于x的类型。</p>
-<p>强制类型转换符是可以将一种数据类型转化为另外一种，因此如(char)&amp;x这样的表达式表明无论指针&amp;x以前是什么类型，它现在就是一个指向数据类型为char类型的指针，这里的强制类型转换不会改变真实的指针，只是告诉编译器以这种数据类型来看待被指向的数据。</p>
-</blockquote>
-<p>​    C语言中，字符串为一个以null字符结尾的字符数组，每个字符都由某个标准编码表示，最常见的是ASCII字符码，而在使用ASCII码作为字符码的任何系统上，来运行像这样的程序：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> start,<span class="keyword">size_t</span> len )</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">size_t</span> i;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.2x"</span>,start[i]);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;<span class="comment">//打印字符串</span></span></pre></td></tr></table></figure>
-<p>得到的结果都会是相同的，即31 32 33 34 35 00，其中1对应的ASCII码为31而终止字节的ASCII码表示为0x00，我们可以说文本数据比二进制数据具有更好的平台独立性。</p>
-<h3 id="表示代码"><a href="#表示代码" class="headerlink" title="表示代码"></a>表示代码</h3><p>​    计算机的一个基本概念就是，从机器的角度来看，程序仅仅是字节序列，机器没有关于原始源程序的任何信息，除了可以用来帮助调试的辅助表以外。</p>
-<h3 id="布尔代数"><a href="#布尔代数" class="headerlink" title="布尔代数"></a>布尔代数</h3><p>​    ~、&amp;、|、^分别表示NOT、AND、OR、EXCLUSIVE-OR，可以将这四种运算拓展到位向量的运算。假设ab都是长为m的位串，将a&amp;b也定义为一个位向量，则$(a\&amp;b)_i=a_i\&amp;b_i$。</p>
-<p>​    实际应用中，我们可以用位向量来表示集合编码，在后面的章节我们会遇到。</p>
-<h3 id="C语言中的位级运算"><a href="#C语言中的位级运算" class="headerlink" title="C语言中的位级运算"></a>C语言中的位级运算</h3><p>​    位级运算的一个常见用法就是掩码运算，不过这样做的可移植性较低。</p>
-<blockquote>
-<p>关于hexo不支持LaTeX的问题，具体可以参考<a href="https://www.jianshu.com/p/d95a4795f3a8" target="_blank" rel="noopener">这篇文章</a>，需要注意的是LaTeX跟markdown的语法有冲突，markdown中_和<em> 都可以用来表示斜体和加粗，这里将 _用于LaTeX而把</em>用于markdown。</p>
-</blockquote>
+<h3 id="机器代码"><a href="#机器代码" class="headerlink" title="机器代码"></a>机器代码</h3><p>​    x86-64的机器代码中包含了一些对程序员通常隐藏的状态：</p>
+<ul>
+<li><strong>程序计数器(</strong>在x86-64中用%rip)表示，给出要执行的下一条指令在内存中的地址。</li>
+<li><strong>整数寄存器文件</strong>包含16个命名的位置，存储64位的值，来存储一些地址或者整数。</li>
+<li><strong>条件码寄存器</strong>，保存最近执行的算术/逻辑指令的信息。</li>
+<li>一组<strong>向量寄存器</strong>可以存放一个或者多个整数或者浮点数。</li>
+</ul>
+<h3 id="反汇编"><a href="#反汇编" class="headerlink" title="反汇编"></a>反汇编</h3><p>​    要查看机器代码文件的内容，有一类<strong>反汇编器(disassembler)</strong>非常有用，根据机器代码产生类似汇编代码的格式，Linux里使用程序OBJDUMP可以起到这个作用<code>objdump -d mstore.o</code>，vscode里也有类似插件。</p>
+<p>​    注意反汇编器只是基于机器代码来生成汇编代码，而没有访问源代码或者汇编代码，且它生成的汇编代码和gcc使用的有些许差别。</p>
+<h3 id="关于汇编代码"><a href="#关于汇编代码" class="headerlink" title="关于汇编代码"></a>关于汇编代码</h3><ul>
+<li>所有”.”开头的都是指导汇编器和链接器工作的伪指令。</li>
+<li>表示汇编代码的格式：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">	void multstore(long x,long y,long *dest)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	x in %rdi, y in %rsi, dest in %rdx</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">1	multstore:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">2		push	%rbx			Save %rbx</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">3		movq	%rdx, %rbx		Copy dest to %rbx</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">4		call	mult2			Call mult2(x, y)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">5		movq	%rax, (%rbx)	Store result at *dest</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">6		popq	%rbx			Restore %rbx</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">7		ret						Return</span></pre></td></tr></table></figure>
+<p>​    每一行的左边都有编号以供引用，右边是注释。</p>
+<ul>
+<li>汇编代码可以和C函数组合，也可以利用GCC的支持，直接在C语言中嵌入汇编代码。</li>
+</ul>
+<p>大多数GCC生成的汇编代码指令都有一个字符的后缀，表明操作数的大小。例如，数据传送指令有四个变种：</p>
+<ul>
+<li><code>movb</code>(传送字节)</li>
+<li><code>movw</code>(传送字)</li>
+<li><code>mov1</code>(传送双字)</li>
+<li><code>movq</code>(传送四字)</li>
+</ul>
+<h3 id="访问数据"><a href="#访问数据" class="headerlink" title="访问数据"></a>访问数据</h3><p>​    x86-64有8个64位寄存器，标号从%rax到%rsp，除此之外还有8个新的寄存器，标号从%r8到%r15。</p>
+<p>​    指令可以对寄存器中不同大小的数据进行操作。字节级操作可以访问最低的字节，，16位操作可以访问最低的两个字节，32位操作可以访问最低的4个字节而64位操作则可以访问整个寄存器。</p>
+<p>​    两条规则：</p>
+<ul>
+<li>生成1字节或者2字节数字的指令会保持剩下的指令不变。</li>
+<li>生成4字节的指令会把高位4个字节置为0。</li>
+</ul>
+<p>寄存器的用法十分灵活，有一组标准的规范进行着控制。</p>
+<h3 id="操作数指令符"><a href="#操作数指令符" class="headerlink" title="操作数指令符"></a>操作数指令符</h3><p>大体上分为三类</p>
+<ul>
+<li><strong>立即数(immediate)</strong>，以常数形式给出。</li>
+<li><strong>寄存器(register)</strong>，表示寄存器内容。</li>
+<li><strong>内存引用</strong>，根据操作数的指示来访问内存。</li>
+</ul>
+<p>有多种不同的<strong>寻址方式</strong>，允许不同形式的内存/寄存器引用，其中$Imm(r_b,r_i,s)$是最常用的寻址模式，三个变量分别是基址寄存器、变址寄存器和比例因子，它会被计算成$Imm+R[r_b]+R[r_i]\cdot s$。</p>
+<h3 id="数据传送"><a href="#数据传送" class="headerlink" title="数据传送"></a>数据传送</h3><p>简要介绍下MOV类数据传送代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">MOV		S,D		D &lt;- S</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">movb</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">movw</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">movl</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">movq</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">movabsq	I,R		R &lt;- I</span></pre></td></tr></table></figure>
+<p>结尾的b、w、l、q是指定的大小，<code>movabsq</code>是处理64位立即数数据，能够指定任意64位立即数值作为源操作数，并且只能以寄存器作为目的地。</p>
 
       
     </div>
@@ -409,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/05/%E8%A7%A3%E5%86%B3Ubuntu18-04%E6%B2%A1%E6%9C%89%E5%A3%B0%E9%9F%B3%E8%BE%93%E5%87%BA%E6%98%BE%E7%A4%BA%E4%BC%AA%E8%BE%93%E5%87%BA/" rel="next" title="解决Ubuntu18.04没有声音输出显示伪输出">
-                <i class="fa fa-chevron-left"></i> 解决Ubuntu18.04没有声音输出显示伪输出
+              <a href="/2020/05/13/CSAPP_20200513_02_04/" rel="next" title="信息的表示和处理（四）">
+                <i class="fa fa-chevron-left"></i> 信息的表示和处理（四）
               </a>
             
           </div>
@@ -418,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/04/CSAPP_20200504_02_02/" rel="prev" title="信息的表示和处理（二）">
-                信息的表示和处理（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息的表示和处理（一）"><span class="nav-number">1.</span> <span class="nav-text">信息的表示和处理（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何表示符号"><span class="nav-number">1.1.</span> <span class="nav-text">如何表示符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息存储"><span class="nav-number">1.2.</span> <span class="nav-text">信息存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字数据大小"><span class="nav-number">1.2.1.</span> <span class="nav-text">字数据大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻址和字节顺序"><span class="nav-number">1.2.2.</span> <span class="nav-text">寻址和字节顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示代码"><span class="nav-number">1.2.3.</span> <span class="nav-text">表示代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔代数"><span class="nav-number">1.2.4.</span> <span class="nav-text">布尔代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言中的位级运算"><span class="nav-number">1.2.5.</span> <span class="nav-text">C语言中的位级运算</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#程序的机器级表示（一）"><span class="nav-number">1.</span> <span class="nav-text">程序的机器级表示（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序编码"><span class="nav-number">1.1.</span> <span class="nav-text">程序编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器级编程的两种抽象"><span class="nav-number">1.1.1.</span> <span class="nav-text">机器级编程的两种抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器代码"><span class="nav-number">1.1.2.</span> <span class="nav-text">机器代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反汇编"><span class="nav-number">1.1.3.</span> <span class="nav-text">反汇编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于汇编代码"><span class="nav-number">1.1.4.</span> <span class="nav-text">关于汇编代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问数据"><span class="nav-number">1.1.5.</span> <span class="nav-text">访问数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作数指令符"><span class="nav-number">1.1.6.</span> <span class="nav-text">操作数指令符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据传送"><span class="nav-number">1.1.7.</span> <span class="nav-text">数据传送</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
