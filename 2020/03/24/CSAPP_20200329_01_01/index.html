@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="计算机系统漫游">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-06T08:27:29.976Z">
+<meta property="og:updated_time" content="2020-05-24T03:26:21.495Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -378,7 +378,7 @@
 <p>​        操作系统保持跟踪进程运行所需的所有状态信息，这种状态，就是<strong>上下文</strong>，上下文包括了很多信息，比如PC和寄存器文件当前的值，以及主存的内容。当操作系统决定要把控制权从当前进程转移到新进程时，就会进行上下文切换，即保存当前进程的上下文，恢复新进程的上下文然后将控制权交到新进程，然后新进程再从它上次停止的地方开始。</p>
 <p>​        从一个进程到另一个进程的转换是由<strong>操作系统内核(kernel)</strong>管理的，操作系统内核是操作系统代码常驻主存的部分，当应用程序需要操作系统执行某些操作时，他就执行特殊的<strong>系统调用指令(system call)</strong> ，将控制权传递给内核，然后内核执行被请求的操作并返回给应用程序（注意内核不是进程，相反，它是系统管理所有进程所用的代码跟数据结构的集合）。</p>
 <h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>​        现代系统中一个进程通常由多个<strong>线程</strong>组成，每个线程都运行在进程上下文中，共享代码和全局操作，线程间分享数据一般较进程中高效。</p>
-<h4 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h4><p>​        <strong>并发</strong>指同时有多个程序执行的系统，而<strong>并行</strong>指用并发使一个系统运行的更快。</p>
+<h3 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h3><p>​        <strong>并发</strong>指同时有多个程序执行的系统，而<strong>并行</strong>指用并发使一个系统运行的更快。</p>
 <ul>
 <li>线程级并发：使用线程，我们就能在一个进程中同时控制多个程序运行。<strong>超线程，</strong>也叫<strong>同时多线程(simultaneous multi-threading)</strong>，是一项允许一个CPU执行多个控制流的技术，它设计CPU某些硬件有多个备份，使得CPU能更好的利用它的处理资源。</li>
 <li>指令级并行：较先进的处理器可以每个时钟周期2~4条指令的执行速率，但其实每条指令消耗的时间可能会长的多，大约20个时钟周期，处理器会运用到很多技巧，类似<strong>流水线(pipelining)</strong>的操作来帮它们做到。如果哦一个处理器可以达到比一个周期一条指令更快的执行速率，就称为<strong>超标量(superscalar)处理器</strong>，大多数处理器都支持超标量操作。</li>
@@ -509,7 +509,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -555,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机系统漫游"><span class="nav-number">1.</span> <span class="nav-text">计算机系统漫游</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息-位-上下文"><span class="nav-number">1.1.</span> <span class="nav-text">信息=位+上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序被翻译成别的格式"><span class="nav-number">1.2.</span> <span class="nav-text">程序被翻译成别的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理器读并解释储存在内存中的指令"><span class="nav-number">1.3.</span> <span class="nav-text">处理器读并解释储存在内存中的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统的硬件组成"><span class="nav-number">1.3.1.</span> <span class="nav-text">系统的硬件组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序的运行"><span class="nav-number">1.3.2.</span> <span class="nav-text">程序的运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高速缓存"><span class="nav-number">1.4.</span> <span class="nav-text">高速缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统管理硬件"><span class="nav-number">1.5.</span> <span class="nav-text">操作系统管理硬件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">1.5.1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number">1.5.2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#并发和并行"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">并发和并行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟内存"><span class="nav-number">1.5.3.</span> <span class="nav-text">虚拟内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件"><span class="nav-number">1.5.4.</span> <span class="nav-text">文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络通信"><span class="nav-number">1.6.</span> <span class="nav-text">网络通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象"><span class="nav-number">1.7.</span> <span class="nav-text">抽象</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机系统漫游"><span class="nav-number">1.</span> <span class="nav-text">计算机系统漫游</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息-位-上下文"><span class="nav-number">1.1.</span> <span class="nav-text">信息=位+上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序被翻译成别的格式"><span class="nav-number">1.2.</span> <span class="nav-text">程序被翻译成别的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理器读并解释储存在内存中的指令"><span class="nav-number">1.3.</span> <span class="nav-text">处理器读并解释储存在内存中的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统的硬件组成"><span class="nav-number">1.3.1.</span> <span class="nav-text">系统的硬件组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序的运行"><span class="nav-number">1.3.2.</span> <span class="nav-text">程序的运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高速缓存"><span class="nav-number">1.4.</span> <span class="nav-text">高速缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统管理硬件"><span class="nav-number">1.5.</span> <span class="nav-text">操作系统管理硬件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">1.5.1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number">1.5.2.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发和并行"><span class="nav-number">1.5.3.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟内存"><span class="nav-number">1.5.4.</span> <span class="nav-text">虚拟内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件"><span class="nav-number">1.5.5.</span> <span class="nav-text">文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络通信"><span class="nav-number">1.6.</span> <span class="nav-text">网络通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象"><span class="nav-number">1.7.</span> <span class="nav-text">抽象</span></a></li></ol></li></ol></div>
             
 
           </div>

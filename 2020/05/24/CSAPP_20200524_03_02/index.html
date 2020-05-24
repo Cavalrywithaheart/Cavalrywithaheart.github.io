@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="Ubuntu(Linux)系统安装时可能会遇到的几个问题​">
+<meta name="description" content="程序的机器级表示（二）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DELL inspiration7391 Windows10和ubuntu18.04双系统使用grub引导">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;16&#x2F;ubuntu%E8%A3%85%E6%9C%BA&#x2F;index.html">
+<meta property="og:title" content="程序的机器级表示（二）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;24&#x2F;CSAPP_20200524_03_02&#x2F;index.html">
 <meta property="og:site_name" content="Cavalry">
-<meta property="og:description" content="Ubuntu(Linux)系统安装时可能会遇到的几个问题​">
+<meta property="og:description" content="程序的机器级表示（二）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-29T12:16:23.380Z">
+<meta property="og:updated_time" content="2020-05-24T03:25:41.988Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/16/ubuntu装机/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/24/CSAPP_20200524_03_02/"/>
 
 
 
 
 
-  <title>DELL inspiration7391 Windows10和ubuntu18.04双系统使用grub引导 | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>程序的机器级表示（二） | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/16/ubuntu%E8%A3%85%E6%9C%BA/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/CSAPP_20200524_03_02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cavalry">
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DELL inspiration7391 Windows10和ubuntu18.04双系统使用grub引导</h1>
+          <h1 class="post-title" itemprop="name headline">程序的机器级表示（二）</h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T11:05:53+08:00">
-                2019-12-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-24T09:46:01+08:00">
+                2020-05-24
               </time>
             
 
@@ -302,8 +302,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux系统</span>
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度理解计算机系统阅读笔记</span>
                   </a>
                 </span>
 
@@ -339,61 +339,26 @@
       
 
       
-        <h1 id="Ubuntu-Linux-系统安装时可能会遇到的几个问题"><a href="#Ubuntu-Linux-系统安装时可能会遇到的几个问题" class="headerlink" title="Ubuntu(Linux)系统安装时可能会遇到的几个问题"></a>Ubuntu(Linux)系统安装时可能会遇到的几个问题</h1><p>​    <a id="more"></a></p>
-<p>​    这几天在Windows系统下尝试安装了Linux系统(指Ubuntu)，安装的时候顺便了解了下Linux的分区要求，果然水很深啊233333。</p>
-<p>​    不同的人有不同的配置需求，但对于小白而言，首先需要<strong>搞清楚自己电脑的配置</strong>，网上的教程大多是针对MBR传统BIOS，而市面上的电脑大多是UEFI设置 ，主要的配置如下：</p>
+        <h1 id="程序的机器级表示（二）"><a href="#程序的机器级表示（二）" class="headerlink" title="程序的机器级表示（二）"></a>程序的机器级表示（二）</h1><a id="more"></a>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>​    <strong>过程</strong>是一种抽象，它提供了封装代码的方式，用参数和返回值实现了某种功能，它的形式多种多样，有函数、方法、子例程和子例程等等。</p>
+<h3 id="运行时栈"><a href="#运行时栈" class="headerlink" title="运行时栈"></a>运行时栈</h3><p>​    当存储空间超过寄存器能存放的大小时，就会在栈上分配空间，这个部分称为过程的<strong>栈帧(stack frame)</strong>，正在执行的帧总是在栈顶，而栈指针也总是指向栈顶的。</p>
+<h3 id="转移控制"><a href="#转移控制" class="headerlink" title="转移控制"></a>转移控制</h3><p>​    将控制从函数P转移到函数Q只需要简单地把程序计数器(PC)设置为Q的代码起始位置，但是还需要用处理器记录好它需要继续P的执行的代码位置，通常采用把返回地址压入栈的方式。</p>
+<h3 id="数据传送"><a href="#数据传送" class="headerlink" title="数据传送"></a>数据传送</h3><p>​    参数的传递，返回值的传递，大多数据的传送是通过寄存器来实现的。寄存器的使用是有一定顺序的，这主要取决于传递的数据类型的大小。如果一个函数有超过6个整型参数，则超过的部分需要通过栈来传递。</p>
+<h3 id="栈上的局部存储"><a href="#栈上的局部存储" class="headerlink" title="栈上的局部存储"></a>栈上的局部存储</h3><p>​    局部数据必须存放到内存中的情况：</p>
 <ul>
-<li>MBR传统BIOS+单硬盘</li>
-<li>MBR传统BIOS+双硬盘（SSuD固态硬盘+机械硬盘）</li>
-<li>UEFI新式BIOS+单硬盘</li>
-<li>UEFI新式BIOS+双硬盘（SSD固态硬盘+机械硬盘）</li>
-<li>以上任意一种情况+电脑有独立显卡（少数电脑此种情况下会遇到Linux系统下没有显卡驱动而导致Linux安装的时候卡死。</li>
+<li>寄存器不足够存放所有的本地数据。</li>
+<li>对一个局部变量使用地址运算符”&amp;”，因此必须能够为它产生一个地址。</li>
+<li>某些局部变量是数组或者结构，因此必须通过数组或者结构引用被访问到。</li>
 </ul>
+<p>过程通过减少栈指针在栈上分配空间，分配的结果作为栈帧的一部分，称为“局部变量”。</p>
+<h3 id="寄存器中的局部存储空间"><a href="#寄存器中的局部存储空间" class="headerlink" title="寄存器中的局部存储空间"></a>寄存器中的局部存储空间</h3><p>​    根据惯例，寄存器%rbx、%rbp和%r12~%r15被划分为<strong>被调用者保存寄存器</strong>，当过程P调用过程Q的时候，Q必须保存这些寄存器的值。</p>
+<p>​    过程Q保存一个寄存器的值不变，要么是不去改变它，要么就是把原始值压入栈中，改变寄存器的值，然后在返回前从栈中弹出旧值。</p>
+<p>​    所有其他的寄存器，除了栈指针%rsp，都分类为<strong>调用者保存寄存器</strong>，这意味着任何函数都能修改他们。</p>
 <blockquote>
-<p>怎样查看自己电脑是MBR还是UEFI：win+R输入msinfo32回车确认即可查看自己BIOS模式。</p>
+<p>如何理解被调用者保存和调用者保存？</p>
+<p>“被调用者保存”意即保存好寄存器中数据是被调用者的责任。</p>
 </blockquote>
-<p>本人电脑属于第三种类型(某DELL Inspiration)，这里主要记录下这种情况下可能遇到的坑：</p>
-<p>BIOS下需要修改项：</p>
-<ol>
-<li><p>SATA Operation里选择ACHI（若此处忘记更改，则Ubuntu安装界面会没有让你自己分区的界面，或者无法进行分区（显示internal error））。</p>
-</li>
-<li><p>Boot Sequence（本人是通过Ubuntu镜像来进行安装，需要在BIOS中将启动顺序中USB置顶）。</p>
-</li>
-<li>Security Boot去掉对勾。</li>
-<li>ptt on去掉对勾（笔者此处不去掉对勾似乎也可）。</li>
-</ol>
-<p>记得要插入U盘进行重启。</p>
-<p>进入安装后，记得不要联网，不要更新，否则安装将会进行的很慢，地区随便设置一下就可以了。</p>
-<p>分区设置：</p>
-<ol>
-<li>EFI分区引导  SSD  主分区  500M（如果是UEFI+GPT分区表模式，那么给ubuntu分区的时候不用设置/boot分区，设置efi系统分区；如果是legacy+MBR分区表那么就要设置/boot分区，网上应有详细教程）。</li>
-<li>swap 交换空间  HDD  逻辑空间 物理内存一到两倍即可（这个分区作为Linux的虚拟内存）。</li>
-<li>/ HDD  逻辑分区  ex4  20G（这个分区用于储存系统文件）。</li>
-<li>/home  HDD  逻辑分区  ex4  剩余空间（用户文件夹储存的地方）。</li>
-</ol>
-<p>配置这些分区已经足够，此外，还有些别的分区（根据自己需求选配）：</p>
-<ul>
-<li>/usr/local：是 Linux系统存放软件的地方。</li>
-<li>/var：是系统日志记录分区。</li>
-<li>/tmp分区，用来存放临时文件。</li>
-</ul>
-<hr>
-<p>​    建议把/var和/tmp独立出来的教程通常是面向服务器的。因为高负载的服务器通常会产生很多日志文件、临时文件，这些文件经常改变，因此把/var，/tmp独立出来有利于提高服务器性能。但如果你用Ubuntu是做桌面的，或从来不关心过系统日志这东西，就没有必要独立的为/var和/tmp挂载分区。</p>
-<p>​    还有些老旧的教程中建议把Linux安装在主分区中，或在/boot下挂载一个主分区。事实上，这也是不需要的。Linux的所有分区都可以位于逻辑分区中。所以请放心的把Linux安装在逻辑分区中吧。</p>
-<p>​    </p>
-<h2 id="接下来说说怎样删除EFI分区"><a href="#接下来说说怎样删除EFI分区" class="headerlink" title="接下来说说怎样删除EFI分区"></a>接下来说说怎样删除EFI分区</h2><p>​    <strong>使用相关软件（easyUEFI之类）成功删除相关项目后</strong>，再删除磁盘时，可以发现有一个EFI分区无法删除（Ubuntu系统的引导），网上很多方法都是select disk 编号 —&gt;clean，若磁盘上还有别的文件，clean后就GG了，想要再恢复磁盘数据需要下载使用相关软件恢复（DiskGenius之类）。</p>
-<p>​    下面介绍一个绝对安全的方法：</p>
-<ol>
-<li>打开cmd。</li>
-<li>输入<em>dispart</em>（或者直接win+R输入<em>dispart</em>也可）</li>
-<li>在新窗口中输入<em>list disk</em></li>
-<li>根据磁盘编号选择相应磁盘（有可能只有一个磁盘）</li>
-<li>输入<em>list partition</em>查看分区</li>
-<li>选中<strong>Ubuntu EFI</strong>所在分区（千万不要把Windows的引导删除了！！！）</li>
-<li>最后执行命令 SET ID=ebd0a0a2-b9e5-4433-87c0-68b6b72699c7</li>
-</ol>
-<p>成功删除EFI分区！</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>​    本人使用的是dell灵越系列7391，多次尝试装ubuntu均未果。原因是电脑原生的显卡有小冲突，在咨询客服后得知先将电脑调为安全模式再进行一系列操作即可成功安装，安装不成功的小伙伴可以试试这个法子。</p>
+<h3 id="递归过程"><a href="#递归过程" class="headerlink" title="递归过程"></a>递归过程</h3><p>​    本质上，递归调用一个函数与调用其他函数是一样的。每个过程调用都在栈上有自己的私有的状态信息存储空间，栈分配和释放的规则也就与被函数调用-返回的顺序匹配。</p>
 
       
     </div>
@@ -418,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2020/05/18/CSAPP_20200518_03_01/" rel="next" title="程序的机器级表示（一）">
+                <i class="fa fa-chevron-left"></i> 程序的机器级表示（一）
               </a>
             
           </div>
@@ -427,10 +392,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/16/brainfuck/" rel="prev" title="brainfuck">
-                brainfuck <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-Linux-系统安装时可能会遇到的几个问题"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu(Linux)系统安装时可能会遇到的几个问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来说说怎样删除EFI分区"><span class="nav-number">1.1.</span> <span class="nav-text">接下来说说怎样删除EFI分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">1.2.</span> <span class="nav-text">后记</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#程序的机器级表示（二）"><span class="nav-number">1.</span> <span class="nav-text">程序的机器级表示（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过程"><span class="nav-number">1.1.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时栈"><span class="nav-number">1.1.1.</span> <span class="nav-text">运行时栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移控制"><span class="nav-number">1.1.2.</span> <span class="nav-text">转移控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据传送"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据传送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈上的局部存储"><span class="nav-number">1.1.4.</span> <span class="nav-text">栈上的局部存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器中的局部存储空间"><span class="nav-number">1.1.5.</span> <span class="nav-text">寄存器中的局部存储空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归过程"><span class="nav-number">1.1.6.</span> <span class="nav-text">递归过程</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -707,24 +668,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -777,6 +721,43 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

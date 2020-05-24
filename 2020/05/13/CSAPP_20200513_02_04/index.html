@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Cavalry">
 <meta property="og:description" content="信息的表示和处理（四）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-16T14:06:39.724Z">
+<meta property="og:updated_time" content="2020-05-24T03:08:09.975Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -359,15 +359,15 @@ V=(-1)^s\times M\times2^E</script><ul>
 </ul>
 <p>​    这三个字段在float和double里分别占1、8、23位和1、11、52位。</p>
 <ol>
-<li><p>规格化的值</p>
+<li><p><strong>规格化的值</strong></p>
 <p>​    当exp的位模式既不全为0也不全为1的时候，阶码的值E=e-Bias，也就是原来的指数减去偏置值，Bias是一个等于$2^{k-1}$的偏置值。</p>
 <p>​    尾数的值M为1+f，其中$0\leq f&lt;1$，我们通过调整阶码使得M的范围始终在[1,2)中，既然首位的1可以被省略，这样就额外获得了一个精度位。</p>
 </li>
-<li><p>非规格化的值</p>
+<li><p><strong>非规格化的值</strong></p>
 <p>​    当阶码域全为0的时候，所表示的数是非规格化形式。这种情况下，阶码值是E=1-Bias，尾数f的值是M=f，也就是小数字段的值，不包括隐含的1。</p>
 <p>​    非规格化数的意义是表示0和接近0的数。</p>
 </li>
-<li><p>特殊值<br>​    当阶码域全为1的时候会出现特殊值。在这种情况下，若小数域全为0，得到的值表示无穷，当s=0时是正无穷而当s=1的时候是负无穷。当小数域非0的时候，结果值会被称为是NaN。</p>
+<li><p><strong>特殊值</strong><br>​    当阶码域全为1的时候会出现特殊值。在这种情况下，若小数域全为0，得到的值表示无穷，当s=0时是正无穷而当s=1的时候是负无穷。当小数域非0的时候，结果值会被称为是NaN。</p>
 </li>
 </ol>
 <h3 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h3><p>​    因为表示方法限制了浮点数的精度，因此它只能近似表示实数运算，实际中需要进行舍入。</p>
@@ -493,7 +493,7 @@ V=(-1)^s\times M\times2^E</script><ul>
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
