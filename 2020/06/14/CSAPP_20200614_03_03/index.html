@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="程序的机器级表示（二）">
+<meta name="description" content="程序的机器级表示（三）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序的机器级表示（二）">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;24&#x2F;CSAPP_20200524_03_02&#x2F;index.html">
+<meta property="og:title" content="程序的机器级表示（三）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;14&#x2F;CSAPP_20200614_03_03&#x2F;index.html">
 <meta property="og:site_name" content="Cavalry">
-<meta property="og:description" content="程序的机器级表示（二）">
+<meta property="og:description" content="程序的机器级表示（三）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-14T15:14:42.489Z">
+<meta property="og:updated_time" content="2020-06-15T00:16:15.053Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/24/CSAPP_20200524_03_02/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/14/CSAPP_20200614_03_03/"/>
 
 
 
 
 
-  <title>程序的机器级表示（二） | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>程序的机器级表示（三） | Cavalry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/CSAPP_20200524_03_02/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/CSAPP_20200614_03_03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cavalry">
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">程序的机器级表示（二）</h1>
+          <h1 class="post-title" itemprop="name headline">程序的机器级表示（三）</h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-24T09:46:01+08:00">
-                2020-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-14T11:32:21+08:00">
+                2020-06-14
               </time>
             
 
@@ -339,26 +339,18 @@
       
 
       
-        <h1 id="程序的机器级表示（二）"><a href="#程序的机器级表示（二）" class="headerlink" title="程序的机器级表示（二）"></a>程序的机器级表示（二）</h1><a id="more"></a>
-<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>​    <strong>过程</strong>是一种抽象，它提供了封装代码的方式，用参数和返回值实现了某种功能，它的形式多种多样，有函数、方法、子例程和子例程等等。</p>
-<h3 id="运行时栈"><a href="#运行时栈" class="headerlink" title="运行时栈"></a>运行时栈</h3><p>​    当存储空间超过寄存器能存放的大小时，就会在栈上分配空间，这个部分称为过程的<strong>栈帧(stack frame)</strong>，正在执行的帧总是在栈顶，而栈指针也总是指向栈顶的（栈指针%rsp保存着栈顶元素的地址）。</p>
-<h3 id="转移控制"><a href="#转移控制" class="headerlink" title="转移控制"></a>转移控制</h3><p>​    将控制从函数P转移到函数Q只需要简单地把程序计数器(PC)设置为Q的代码起始位置，但是还需要用处理器记录好它需要继续P的执行的代码位置，通常采用把返回地址压入栈的方式。</p>
-<h3 id="数据传送"><a href="#数据传送" class="headerlink" title="数据传送"></a>数据传送</h3><p>​    参数的传递，返回值的传递，大多数据的传送是通过寄存器来实现的。寄存器的使用是有一定顺序的，这主要取决于传递的数据类型的大小。如果一个函数有超过6个整型参数，则超过的部分需要通过栈来传递。</p>
-<h3 id="栈上的局部存储"><a href="#栈上的局部存储" class="headerlink" title="栈上的局部存储"></a>栈上的局部存储</h3><p>​    局部数据必须存放到内存中的情况：</p>
-<ul>
-<li>寄存器不足够存放所有的本地数据。</li>
-<li>对一个局部变量使用地址运算符”&amp;”，因此必须能够为它产生一个地址。</li>
-<li>某些局部变量是数组或者结构，因此必须通过数组或者结构引用被访问到。</li>
+        <h1 id="程序的机器级表示（三）"><a href="#程序的机器级表示（三）" class="headerlink" title="程序的机器级表示（三）"></a>程序的机器级表示（三）</h1><a id="more"></a>
+<h2 id="C中的数据结构的说明"><a href="#C中的数据结构的说明" class="headerlink" title="C中的数据结构的说明"></a>C中的数据结构的说明</h2><h3 id="变长数组"><a href="#变长数组" class="headerlink" title="变长数组"></a>变长数组</h3><p>​    引用的变长数组必须用乘法指令而不能使用加法和移位，这会招致严重的处罚，当循环引用边长数组时，编译器往往会利用访问模式的规律性来优化索引的计算。</p>
+<h3 id="数据对齐"><a href="#数据对齐" class="headerlink" title="数据对齐"></a>数据对齐</h3><p>​    许多计算机对基本数据的合法地址做了限制，要求必须是某个值的倍数，这种限制降低了寻址时间。</p>
+<p>​    对于大多数x86-64指令来说，保证数据对齐能够提高效率。但有些实现多媒体操作的SSE指令若不进行数据对齐则无法正确执行，在SSE单元和内存间传送数据的指令要求内存地址必须为16的倍数。</p>
+<h2 id="结合控制和数据"><a href="#结合控制和数据" class="headerlink" title="结合控制和数据"></a>结合控制和数据</h2><h3 id="内存越界"><a href="#内存越界" class="headerlink" title="内存越界"></a>内存越界</h3><p>​    常见的状态破坏称为缓冲区溢出(buffer overflow)，它可能会改写内存的任意位置而导致不可预知的崩溃，它的另一个更加致命的使用就是让程序执行它本不愿意执行的函数，例如会用一个指向攻击代码的指针覆盖返回地址。</p>
+<h3 id="对抗缓冲区溢出攻击"><a href="#对抗缓冲区溢出攻击" class="headerlink" title="对抗缓冲区溢出攻击"></a>对抗缓冲区溢出攻击</h3><ul>
+<li>栈随机化</li>
+<li>栈破坏检测</li>
+<li>限制可执行代码区域</li>
 </ul>
-<p>过程通过减少栈指针在栈上分配空间，分配的结果作为栈帧的一部分，称为“局部变量”。</p>
-<h3 id="寄存器中的局部存储空间"><a href="#寄存器中的局部存储空间" class="headerlink" title="寄存器中的局部存储空间"></a>寄存器中的局部存储空间</h3><p>​    根据惯例，寄存器%rbx、%rbp和%r12~%r15被划分为<strong>被调用者保存寄存器</strong>，当过程P调用过程Q的时候，Q必须保存这些寄存器的值。</p>
-<p>​    过程Q保存一个寄存器的值不变，要么是不去改变它，要么就是把原始值压入栈中，改变寄存器的值，然后在返回前从栈中弹出旧值。</p>
-<p>​    所有其他的寄存器，除了栈指针%rsp，都分类为<strong>调用者保存寄存器</strong>，这意味着任何函数都能修改他们。</p>
-<blockquote>
-<p>如何理解被调用者保存和调用者保存？</p>
-<p>“被调用者保存”意即保存好寄存器中数据是被调用者的责任。</p>
-</blockquote>
-<h3 id="递归过程"><a href="#递归过程" class="headerlink" title="递归过程"></a>递归过程</h3><p>​    本质上，递归调用一个函数与调用其他函数是一样的。每个过程调用都在栈上有自己的私有的状态信息存储空间，栈分配和释放的规则也就与被函数调用-返回的顺序匹配。</p>
+<h3 id="支持变长栈帧"><a href="#支持变长栈帧" class="headerlink" title="支持变长栈帧"></a>支持变长栈帧</h3><p>​    为了管理变长栈帧，x86-64使用寄存器%rbp作为帧指针(frame pointer)。为什么要特意用一个被调用者保存寄存器来存初始的栈顶位置呢？是因为，在for循环中，i是不停变化的，因此局部变量i在被存到栈中后不能不管它，要在循环过程中修改它的值，而右图中可看到，i存放在初始栈顶向下的8个字节中，因此需要记录下初始栈顶位置以方便定位到i。</p>
+<p>有关汇编语言的部分，参见<a href="https://www.felixcloutier.com/x86/" target="_blank" rel="noopener">https://www.felixcloutier.com/x86/</a></p>
 
       
     </div>
@@ -383,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/18/CSAPP_20200518_03_01/" rel="next" title="程序的机器级表示（一）">
-                <i class="fa fa-chevron-left"></i> 程序的机器级表示（一）
+              <a href="/2020/05/24/CSAPP_20200524_03_02/" rel="next" title="程序的机器级表示（二）">
+                <i class="fa fa-chevron-left"></i> 程序的机器级表示（二）
               </a>
             
           </div>
@@ -393,8 +385,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/06/14/CSAPP_20200614_03_03/" rel="prev" title="程序的机器级表示（三）">
-                程序的机器级表示（三） <i class="fa fa-chevron-right"></i>
+              <a href="/2020/06/15/CSAPP_20200624_05_01/" rel="prev" title="处理器体系结构（一）">
+                处理器体系结构（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -518,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#程序的机器级表示（二）"><span class="nav-number">1.</span> <span class="nav-text">程序的机器级表示（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过程"><span class="nav-number">1.1.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时栈"><span class="nav-number">1.1.1.</span> <span class="nav-text">运行时栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移控制"><span class="nav-number">1.1.2.</span> <span class="nav-text">转移控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据传送"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据传送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈上的局部存储"><span class="nav-number">1.1.4.</span> <span class="nav-text">栈上的局部存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器中的局部存储空间"><span class="nav-number">1.1.5.</span> <span class="nav-text">寄存器中的局部存储空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归过程"><span class="nav-number">1.1.6.</span> <span class="nav-text">递归过程</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#程序的机器级表示（三）"><span class="nav-number">1.</span> <span class="nav-text">程序的机器级表示（三）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C中的数据结构的说明"><span class="nav-number">1.1.</span> <span class="nav-text">C中的数据结构的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变长数组"><span class="nav-number">1.1.1.</span> <span class="nav-text">变长数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据对齐"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据对齐</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结合控制和数据"><span class="nav-number">1.2.</span> <span class="nav-text">结合控制和数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存越界"><span class="nav-number">1.2.1.</span> <span class="nav-text">内存越界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对抗缓冲区溢出攻击"><span class="nav-number">1.2.2.</span> <span class="nav-text">对抗缓冲区溢出攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持变长栈帧"><span class="nav-number">1.2.3.</span> <span class="nav-text">支持变长栈帧</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -672,7 +664,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
@@ -725,43 +734,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
   
 
 
